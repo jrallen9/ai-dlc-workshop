@@ -1,6 +1,6 @@
 # AI-DLC Workshop Website
 
-Minimal public-facing static website for the AI-DLC workshop series.
+Minimal public-facing static site for the AI-DLC workshop series.
 
 The site is served from `website/public/` and can be hosted by any static web server. This repo includes a small Java 17 server for local WSL Ubuntu hosting.
 
