@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop 5: Brownfield E-Commerce Modernization - AI-DLC Workshop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .intent-card { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; position: relative; }
+        .intent-card h5 { margin-bottom: .5rem; }
+        .intent-prompt { background: #2d2d2d; color: #f8f8f2; padding: 1rem; border-radius: 6px; position: relative; font-family: monospace; font-size: .85rem; white-space: pre-wrap; margin-top: .5rem; }
+        .intent-prompt .copy-btn { position: absolute; top: .5rem; right: .5rem; }
+        .think-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: .75rem 1rem; border-radius: 0 4px 4px 0; margin: .75rem 0; }
+        .note-box { background: #E7F6FD; border-left: 4px solid var(--aws-blue); padding: .75rem 1rem; border-radius: 0 4px 4px 0; margin: .5rem 0; }
+        .section-label { font-size: .8rem; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; color: #6c757d; margin-bottom: .5rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="bi bi-cpu"></i> AI-DLC Workshop Series</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li></ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="workshop-detail">
+        <div class="container">
+            <a href="index.html" class="btn btn-outline-primary back-btn"><i class="bi bi-arrow-left"></i> Back to Workshops</a>
+
+            <h2 class="mb-4"><span id="workshop-number"></span>Brownfield E-Commerce Modernization</h2>
+            <p class="lead">Use AI-DLC Workflow to analyze and modernize an existing e-commerce codebase</p>
+
+            <div class="vision-section">
+                <div class="alert alert-info">
+                    <i class="bi bi-info-circle"></i> This workshop uses an existing brownfield codebase. Clone the repo before starting.
+                </div>
+                <div class="mb-4">
+                    <a href="https://gitlab.aws.dev/enitin/amazon-bedrock-tutorials/-/tree/main/aidlc/workshops/brownfield-ecommerce-aidlc?ref_type=heads" target="_blank" class="btn btn-success">
+                        <i class="bi bi-git"></i> Clone the Brownfield Repo
+                    </a>
+                </div>
+                <h3>Workshop Overview</h3>
+                <p>A sample e-commerce application with user authentication, product catalog, shopping cart, checkout, order history, and category filtering. Use AI-DLC Workflow to analyze and modernize it — the workflow automatically reverse-engineers the codebase before you start building.</p>
+                <h4 class="mt-4">Prerequisites</h4>
+                <ul>
+                    <li>AI-DLC Workflow rules installed (<a href="https://github.com/awslabs/aidlc-workflows#quick-start" target="_blank">setup instructions</a>)</li>
+                    <li>The brownfield repo cloned locally</li>
+                    <li>Node.js v18+ and npm</li>
+                    <li>Access to an AI assistant (Kiro, Claude, Cursor, etc.)</li>
+                </ul>
+            </div>
+
+            <!-- How Brownfield Works -->
+            <div class="vision-section">
+                <h3><i class="bi bi-search"></i> How AI-DLC Workflow Handles Brownfield</h3>
+                <p>When you start the workflow in this repo, Workspace Detection finds existing code (Node.js backend, React frontend, SQLite database) and flags it as a <strong>brownfield project</strong>. The workflow then automatically runs <strong>Reverse Engineering</strong> before Requirements Analysis — it analyzes all packages and components, generates architecture documentation, code structure docs, API documentation, component inventory, interaction diagrams, technology stack docs, and dependency documentation.</p>
+                <p>All of this goes into <code>aidlc-docs/inception/reverse-engineering/</code>. You don't need to tell the AI about the codebase — it reads it and documents it for you. The reverse engineering output becomes the foundation for whatever you build next.</p>
+            </div>
+
+            <!-- What to Expect -->
+            <div class="vision-section">
+                <h3><i class="bi bi-list-check"></i> What to Expect</h3>
+                <p>When you paste any of the intents below, AI-DLC Workflow will:</p>
+                <ol>
+                    <li><strong>Workspace Detection</strong> — scans the repo, finds existing code, flags as brownfield</li>
+                    <li><strong>Reverse Engineering</strong> — analyzes the entire codebase and generates architecture docs, component inventory, API documentation, technology stack, and dependencies. Automatic for brownfield.</li>
+                    <li><strong>Requirements Analysis</strong> — asks clarifying questions about your intent, referencing the reverse engineering output to understand what already exists</li>
+                    <li><strong>User Stories</strong> — creates stories that build on the existing system, not from scratch</li>
+                    <li><strong>Workflow Planning</strong> — determines which Construction stages to run, noting which existing files to modify vs create new</li>
+                    <li><strong>Construction</strong> — designs and generates code that integrates with the existing codebase. Modifies existing files in-place rather than creating duplicates.</li>
+                </ol>
+                <p>The AI will present approval gates at each stage — review and approve to continue, or request changes if needed.</p>
+            </div>
+
+            <!-- Inception Ideas -->
+            <h3 class="mt-5 mb-4">Pick What to Build</h3>
+            <p>These are ready-to-use intents. Pick one, paste it into your AI assistant in this repo, and the workflow takes over.</p>
+
+            <p class="section-label"><i class="bi bi-plus-circle"></i> Feature Additions</p>
+
+            <div class="intent-card">
+                <h5>Product Reviews & Ratings</h5>
+                <div class="intent-prompt"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('i-0',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="i-0" class="mb-0" style="color:#f8f8f2">Using AI-DLC, add a product review system where customers can rate products from 1-5 stars, write text reviews, see average ratings on product cards, and filter/sort products by rating. Only allow reviews from customers who purchased the product.</pre></div>
+            </div>
+
+            <div class="intent-card">
+                <h5>Wishlist</h5>
+                <div class="intent-prompt"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('i-1',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="i-1" class="mb-0" style="color:#f8f8f2">Using AI-DLC, add a wishlist feature where users can save products to a wishlist, view all wishlist items on a dedicated page, and move items from wishlist to cart.</pre></div>
+            </div>
+
+            <div class="intent-card">
+                <h5>Order Tracking</h5>
+                <div class="intent-prompt"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('i-2',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="i-2" class="mb-0" style="color:#f8f8f2">Using AI-DLC, implement order tracking where customers can see real-time order status (Processing, Shipped, Delivered), view estimated delivery date, and receive notifications on status changes.</pre></div>
+            </div>
+
+            <div class="intent-card">
+                <h5>Advanced Search & Filtering</h5>
+                <div class="intent-prompt"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('i-3',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="i-3" class="mb-0" style="color:#f8f8f2">Using AI-DLC, add advanced product search with full-text search across name and description, filter by category, price range, and stock availability, sort by price, rating, or newest, and search suggestions as user types.</pre></div>
+            </div>
+
+            <div class="intent-card">
+                <h5>Admin Dashboard</h5>
+                <div class="intent-prompt"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('i-4',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="i-4" class="mb-0" style="color:#f8f8f2">Using AI-DLC, create an admin dashboard to view sales analytics (daily, weekly, monthly), see top-selling products, monitor inventory levels, track user registrations, and export reports as CSV.</pre></div>
+            </div>
+
+            <p class="section-label mt-4"><i class="bi bi-wrench"></i> Technical Improvements</p>
+
+            <div class="intent-card">
+                <h5>Performance Optimization</h5>
+                <div class="intent-prompt"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('i-5',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="i-5" class="mb-0" style="color:#f8f8f2">Using AI-DLC, optimize the application for better performance — add caching for the product catalog, implement pagination for product lists, add lazy loading for images, and optimize database queries with indexes.</pre></div>
+            </div>
+
+            <div class="intent-card">
+                <h5>Security Enhancements</h5>
+                <div class="intent-prompt"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('i-6',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="i-6" class="mb-0" style="color:#f8f8f2">Using AI-DLC, improve application security — add rate limiting, implement CSRF protection, add input validation and sanitization, add security headers, and implement a password reset flow.</pre></div>
+            </div>
+
+            <div class="intent-card">
+                <h5>Responsive Design</h5>
+                <div class="intent-prompt"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('i-7',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="i-7" class="mb-0" style="color:#f8f8f2">Using AI-DLC, make the application fully responsive with a mobile-first design approach, touch-friendly UI elements, hamburger menu for mobile, and optimized images for different screen sizes.</pre></div>
+            </div>
+
+            <p class="section-label mt-4"><i class="bi bi-arrow-repeat"></i> Brownfield Modernization</p>
+
+            <div class="intent-card">
+                <h5>Migrate to TypeScript</h5>
+                <div class="intent-prompt"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('i-8',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="i-8" class="mb-0" style="color:#f8f8f2">Using AI-DLC, convert the codebase from JavaScript to TypeScript — add type definitions for all components, define interfaces for API responses, add strict type checking, and maintain backward compatibility.</pre></div>
+            </div>
+
+            <div class="intent-card">
+                <h5>Add Testing Suite</h5>
+                <div class="intent-prompt"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('i-9',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="i-9" class="mb-0" style="color:#f8f8f2">Using AI-DLC, implement comprehensive testing — unit tests for services with 80% coverage, integration tests for API endpoints, E2E tests for critical user flows, and test documentation.</pre></div>
+            </div>
+
+            <div class="intent-card">
+                <h5>Containerize the Application</h5>
+                <div class="intent-prompt"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('i-10',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="i-10" class="mb-0" style="color:#f8f8f2">Using AI-DLC, dockerize the application — create Dockerfiles for backend and frontend, add docker-compose for local development, configure environment variables, add health checks, and document the deployment process.</pre></div>
+            </div>
+
+            <div class="intent-card">
+                <h5>Recommendation Engine</h5>
+                <div class="intent-prompt"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('i-11',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="i-11" class="mb-0" style="color:#f8f8f2">Using AI-DLC, add a product recommendation engine — "customers also bought" suggestions, similar products section, trending products widget, and recently viewed items.</pre></div>
+            </div>
+
+            <!-- Tips -->
+            <div class="vision-section mt-5">
+                <h4><i class="bi bi-lightbulb"></i> Tips for Brownfield</h4>
+                <ul>
+                    <li><strong>Let Reverse Engineering finish before doing anything.</strong> It produces the foundation that all later stages reference. Don't skip it.</li>
+                    <li><strong>Reset context after Reverse Engineering.</strong> The output can be large. Start a fresh chat and resume from the state file.</li>
+                    <li><strong>Watch for file modifications vs new files.</strong> AI-DLC Workflow should modify existing files in-place, not create copies like <code>CartService_modified.js</code>. If you see duplicates, flag it.</li>
+                    <li><strong>The AI knows what exists.</strong> After reverse engineering, it understands the current architecture, services, routes, and components. Your intent just needs to say what to add or change.</li>
+                    <li><strong>Start with a smaller intent.</strong> If you're new to AI-DLC Workflow, pick something like "Add product reviews" before attempting "Migrate to TypeScript."</li>
+                    <li><strong>Check <code>aidlc-state.md</code></strong> to see where you are at any point.</li>
+                    <li><strong>File names and structure will vary.</strong> AI-DLC Workflow determines what to create or modify based on the existing codebase.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container"><p class="mb-0">&copy; 2026 AWS AI-DLC Workshop Series</p></div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const workshopNum = urlParams.get('workshop');
+    if (workshopNum) document.getElementById('workshop-number').textContent = 'Workshop ' + workshopNum + ': ';
+
+    function copyId(id, event) {
+        const el = document.getElementById(id);
+        navigator.clipboard.writeText(el.textContent.trim()).then(() => {
+            const btn = event.target.closest('button');
+            const orig = btn.innerHTML;
+            btn.innerHTML = '<i class="bi bi-check"></i> Copied!';
+            btn.classList.add('btn-success'); btn.classList.remove('btn-light');
+            setTimeout(() => { btn.innerHTML = orig; btn.classList.remove('btn-success'); btn.classList.add('btn-light'); }, 2000);
+        });
+    }
+    </script>
+</body>
+</html>

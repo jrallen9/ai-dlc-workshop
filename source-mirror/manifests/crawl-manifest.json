@@ -1,0 +1,201 @@
+{
+  "generatedAt": "2026-04-25T19:11:49.994Z",
+  "sourceOrigin": "https://d3h5h54wint40o.cloudfront.net",
+  "rawRoot": "source-mirror/raw/d3h5h54wint40o.cloudfront.net",
+  "crawlTooling": "wget plus tools/crawl/generate-manifests.mjs",
+  "downloadedFileCount": 14,
+  "htmlPageCount": 7,
+  "downloadedFiles": [
+    {
+      "path": "brownfield-ecommerce.html?workshop=5.html",
+      "type": "html",
+      "sizeBytes": 15928,
+      "sha256": "c9ae42889bc68fe6d4ec4e75cd36cad47e0fc46aa5dcc132830053b4976622d3",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/brownfield-ecommerce.html?workshop=5"
+    },
+    {
+      "path": "ecommerce-catalog.html?workshop=4.html",
+      "type": "html",
+      "sizeBytes": 31194,
+      "sha256": "9855a50198b02f309c4ff3b0d12c314b4ad44bc94b7e19b1da8f6cab068b2b38",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/ecommerce-catalog.html?workshop=4"
+    },
+    {
+      "path": "ecommerce-catalog.js",
+      "type": "javascript",
+      "sizeBytes": 1102,
+      "sha256": "828011f64f95629cce3ee2019b2c19c7a6e5a56fcf894b26dbe7e422f9d32990",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/ecommerce-catalog.js"
+    },
+    {
+      "path": "index.html",
+      "type": "html",
+      "sizeBytes": 10812,
+      "sha256": "62b21b3e92f65e0ed1d5512f29c50f8bfeea95689375a2d3e718f963879a849b",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/index.html"
+    },
+    {
+      "path": "job-application-cdk.html?workshop=2.html",
+      "type": "html",
+      "sizeBytes": 31968,
+      "sha256": "712fc652c349b5a4c684e1911e609b9f8be8081556a3521427e77bbc6b9e277f",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/job-application-cdk.html?workshop=2"
+    },
+    {
+      "path": "job-application-cdk.js",
+      "type": "javascript",
+      "sizeBytes": 925,
+      "sha256": "a17e8ece838d9eb27a986c1f50038ac878b98dbf600afd17e5a00c2c35bed7bd",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/job-application-cdk.js"
+    },
+    {
+      "path": "register.html",
+      "type": "html",
+      "sizeBytes": 7633,
+      "sha256": "a54865853b3fed52f32a459ce48ffaba0d354c82e5c9b479e60ca249427053ed",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/register.html"
+    },
+    {
+      "path": "register.js",
+      "type": "javascript",
+      "sizeBytes": 3937,
+      "sha256": "d32d0ab3e6f271dfbeb65ca086f153cddac1681b561f382a672f915d3a76511c",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/register.js"
+    },
+    {
+      "path": "s3-file-sharing.html?workshop=3.html",
+      "type": "html",
+      "sizeBytes": 32083,
+      "sha256": "c3536d97ddd455857237be0368037ea539cd23de79485919e0f1a723801542e0",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/s3-file-sharing.html?workshop=3"
+    },
+    {
+      "path": "s3-file-sharing.js",
+      "type": "javascript",
+      "sizeBytes": 3846,
+      "sha256": "fc28eb9bd7dc485429affe0f2be7c62e7bfb32e76955f985ddbe740fc80db74a",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/s3-file-sharing.js"
+    },
+    {
+      "path": "script.js",
+      "type": "javascript",
+      "sizeBytes": 14748,
+      "sha256": "db567d85b0a3871b768deb2d392589b3cd4e469c4828d195b7cc184b04331020",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/script.js"
+    },
+    {
+      "path": "styles.css",
+      "type": "css",
+      "sizeBytes": 3874,
+      "sha256": "e7ac1decc6fe54ebfaef9a5703973cc10b942e5e6aa481652d69b9fade38b785",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/styles.css"
+    },
+    {
+      "path": "task-manager.html?workshop=1.html",
+      "type": "html",
+      "sizeBytes": 33263,
+      "sha256": "172f5ce1d67f57ff5de111d49b3101c0dcc46af91c40db9847c11d02e47465fd",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/task-manager.html?workshop=1"
+    },
+    {
+      "path": "task-manager.js",
+      "type": "javascript",
+      "sizeBytes": 925,
+      "sha256": "a17e8ece838d9eb27a986c1f50038ac878b98dbf600afd17e5a00c2c35bed7bd",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/task-manager.js"
+    }
+  ],
+  "htmlPages": [
+    {
+      "path": "brownfield-ecommerce.html?workshop=5.html",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/brownfield-ecommerce.html?workshop=5",
+      "title": "Workshop 5: Brownfield E-Commerce Modernization - AI-DLC Workshop",
+      "h1": null,
+      "h2": "Brownfield E-Commerce Modernization"
+    },
+    {
+      "path": "ecommerce-catalog.html?workshop=4.html",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/ecommerce-catalog.html?workshop=4",
+      "title": "Workshop 4: E-Commerce Product Catalog - AI-DLC Workshop",
+      "h1": null,
+      "h2": "E-Commerce Product Catalog"
+    },
+    {
+      "path": "index.html",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/index.html",
+      "title": "AI-DLC Workshop Series - Learn AI-Driven Development Life Cycle",
+      "h1": "AI-Driven Development Life Cycle",
+      "h2": "Choose Your Workshop"
+    },
+    {
+      "path": "job-application-cdk.html?workshop=2.html",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/job-application-cdk.html?workshop=2",
+      "title": "Workshop 2: Job Application Website with CDK - AI-DLC Workshop",
+      "h1": null,
+      "h2": "Job Application Website with CDK"
+    },
+    {
+      "path": "register.html",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/register.html",
+      "title": "Register Your Interest - AI-DLC Workshop",
+      "h1": null,
+      "h2": "Register Your Interest"
+    },
+    {
+      "path": "s3-file-sharing.html?workshop=3.html",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/s3-file-sharing.html?workshop=3",
+      "title": "Workshop 3: S3 File-Sharing System - AI-DLC Workshop",
+      "h1": null,
+      "h2": "S3 File-Sharing System"
+    },
+    {
+      "path": "task-manager.html?workshop=1.html",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/task-manager.html?workshop=1",
+      "title": "Workshop 1: Task Manager Application - AI-DLC Workshop",
+      "h1": null,
+      "h2": "Task Manager Application"
+    }
+  ],
+  "workshopPages": [
+    {
+      "workshopNumber": 1,
+      "path": "task-manager.html?workshop=1.html",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/task-manager.html?workshop=1",
+      "title": "Workshop 1: Task Manager Application - AI-DLC Workshop",
+      "pageHeading": "Task Manager Application",
+      "rendering": "static HTML with Bootstrap tabs and small page-specific JavaScript"
+    },
+    {
+      "workshopNumber": 2,
+      "path": "job-application-cdk.html?workshop=2.html",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/job-application-cdk.html?workshop=2",
+      "title": "Workshop 2: Job Application Website with CDK - AI-DLC Workshop",
+      "pageHeading": "Job Application Website with CDK",
+      "rendering": "static HTML with Bootstrap tabs and small page-specific JavaScript"
+    },
+    {
+      "workshopNumber": 3,
+      "path": "s3-file-sharing.html?workshop=3.html",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/s3-file-sharing.html?workshop=3",
+      "title": "Workshop 3: S3 File-Sharing System - AI-DLC Workshop",
+      "pageHeading": "S3 File-Sharing System",
+      "rendering": "static HTML with Bootstrap tabs and small page-specific JavaScript"
+    },
+    {
+      "workshopNumber": 4,
+      "path": "ecommerce-catalog.html?workshop=4.html",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/ecommerce-catalog.html?workshop=4",
+      "title": "Workshop 4: E-Commerce Product Catalog - AI-DLC Workshop",
+      "pageHeading": "E-Commerce Product Catalog",
+      "rendering": "static HTML with Bootstrap tabs and small page-specific JavaScript"
+    },
+    {
+      "workshopNumber": 5,
+      "path": "brownfield-ecommerce.html?workshop=5.html",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/brownfield-ecommerce.html?workshop=5",
+      "title": "Workshop 5: Brownfield E-Commerce Modernization - AI-DLC Workshop",
+      "pageHeading": "Brownfield E-Commerce Modernization",
+      "rendering": "static HTML with Bootstrap tabs and small page-specific JavaScript"
+    }
+  ]
+}

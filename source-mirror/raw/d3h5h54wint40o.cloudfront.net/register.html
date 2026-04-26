@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Your Interest - AI-DLC Workshop</title>
+    <meta name="description" content="Register your interest in AI-DLC workshops, deep dives, and training programs. Get notified about upcoming sessions.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="bi bi-cpu"></i> AI-DLC Workshop Series</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <a href="index.html" class="btn btn-outline-primary mb-4">
+                        <i class="bi bi-arrow-left"></i> Back to Home
+                    </a>
+                    
+                    <div class="card shadow">
+                        <div class="card-body p-4">
+                            <h2 class="card-title mb-4">Register Your Interest</h2>
+                            <p class="text-muted mb-4">Let us know what you're interested in and we will get in touch to help.</p>
+                            
+                            <div id="successMessage" class="alert alert-success d-none" role="alert">
+                                <i class="bi bi-check-circle"></i> Thank you! Your interest has been registered successfully. We will be in touch soon.
+                            </div>
+                            
+                            <div id="errorMessage" class="alert alert-danger d-none" role="alert">
+                                <i class="bi bi-exclamation-triangle"></i> <span id="errorText">Something went wrong. Please try again.</span>
+                            </div>
+                            
+                            <form id="interestForm">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Work Email <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="contact" class="form-label">Contact Number (Optional)</label>
+                                    <input type="tel" class="form-control" id="contact">
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="accountName" class="form-label">Organization/Company Name (Optional)</label>
+                                    <input type="text" class="form-control" id="accountName" placeholder="Your organization or company name">
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="saContact" class="form-label">SA Contact (Optional)</label>
+                                    <input type="text" class="form-control" id="saContact" placeholder="Solutions Architect Contact">
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="amContact" class="form-label">AM Contact (Optional)</label>
+                                    <input type="text" class="form-control" id="amContact" placeholder="Account Manager Contact">
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="form-label">Interest <span class="text-danger">*</span></label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="workshop" id="interestWorkshop">
+                                        <label class="form-check-label" for="interestWorkshop">
+                                            Workshop
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="deep-dive" id="interestDeepDive">
+                                        <label class="form-check-label" for="interestDeepDive">
+                                            Deep Dive
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="other" id="interestOther">
+                                        <label class="form-check-label" for="interestOther">
+                                            Other
+                                        </label>
+                                    </div>
+                                    <div id="otherInterestBox" class="mt-2 d-none">
+                                        <input type="text" class="form-control" id="otherInterestText" placeholder="Please specify...">
+                                    </div>
+                                    <div id="interestError" class="text-danger small d-none">Please select at least one interest</div>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary w-100" id="submitBtn">
+                                    <span id="submitText">Submit</span>
+                                    <span id="submitSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <p>&copy; 2026 AI-DLC Workshop Series. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="register.js"></script>
+</body>
+</html>

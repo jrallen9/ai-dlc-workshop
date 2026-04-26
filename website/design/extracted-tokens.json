@@ -1,0 +1,49 @@
+{
+  "source": "website/public/assets/css/styles.css",
+  "generatedFrom": "Phase 3 reconstruction",
+  "colors": {
+    "awsOrange": "#FF9900",
+    "awsOrangeHover": "#ec7211",
+    "awsDark": "#232F3E",
+    "awsLight": "#EAEDED",
+    "awsBlue": "#146EB4",
+    "awsSquidInk": "#16191F",
+    "success": "#1D8102",
+    "successHover": "#16660A",
+    "infoBackground": "#E7F6FD",
+    "promptBackground": "#2d2d2d",
+    "promptText": "#f8f8f2"
+  },
+  "typography": {
+    "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    "framework": "Bootstrap 5.3.2 type scale",
+    "heroHeadingClass": "display-4 fw-bold",
+    "bodyLeadClass": "lead"
+  },
+  "spacing": {
+    "heroPaddingY": "100px",
+    "heroMarginBottom": "50px",
+    "workshopDetailPaddingY": "50px",
+    "visionSectionPadding": "30px",
+    "promptBoxPadding": "20px",
+    "cardGridGapClass": "g-4"
+  },
+  "shape": {
+    "cardRadius": "Bootstrap default",
+    "promptBoxRadius": "8px",
+    "visionSectionRadius": "8px",
+    "workflowCircleRadius": "50%"
+  },
+  "effects": {
+    "navbarShadow": "0 2px 4px rgba(0,0,0,0.1)",
+    "cardShadow": "0 4px 6px rgba(0,0,0,0.1)",
+    "cardHoverShadow": "0 8px 15px rgba(0,0,0,0.2)",
+    "cardHoverTransform": "translateY(-5px)",
+    "transition": "transform 0.3s ease, box-shadow 0.3s ease"
+  },
+  "dependencies": {
+    "bootstrapCss": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
+    "bootstrapJs": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
+    "bootstrapIcons": "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  }
+}

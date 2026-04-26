@@ -1,0 +1,578 @@
+{
+  "generatedAt": "2026-04-25T19:11:49.994Z",
+  "links": [
+    {
+      "from": "brownfield-ecommerce.html?workshop=5.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "brownfield-ecommerce.html?workshop=5.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "brownfield-ecommerce.html?workshop=5.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "brownfield-ecommerce.html?workshop=5.html",
+      "reference": "https://gitlab.aws.dev/enitin/amazon-bedrock-tutorials/-/tree/main/aidlc/workshops/brownfield-ecommerce-aidlc?ref_type=heads",
+      "kind": "external"
+    },
+    {
+      "from": "brownfield-ecommerce.html?workshop=5.html",
+      "reference": "https://github.com/awslabs/aidlc-workflows#quick-start",
+      "kind": "external"
+    },
+    {
+      "from": "ecommerce-catalog.html?workshop=4.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "ecommerce-catalog.html?workshop=4.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "ecommerce-catalog.html?workshop=4.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "ecommerce-catalog.html?workshop=4.html",
+      "reference": "#tab-workflow",
+      "kind": "fragment"
+    },
+    {
+      "from": "ecommerce-catalog.html?workshop=4.html",
+      "reference": "#tab-prompts",
+      "kind": "fragment"
+    },
+    {
+      "from": "ecommerce-catalog.html?workshop=4.html",
+      "reference": "https://github.com/awslabs/aidlc-workflows#quick-start",
+      "kind": "external"
+    },
+    {
+      "from": "index.html",
+      "reference": "#",
+      "kind": "fragment"
+    },
+    {
+      "from": "index.html",
+      "reference": "#home",
+      "kind": "fragment"
+    },
+    {
+      "from": "index.html",
+      "reference": "#workshops",
+      "kind": "fragment"
+    },
+    {
+      "from": "index.html",
+      "reference": "#workflows",
+      "kind": "fragment"
+    },
+    {
+      "from": "index.html",
+      "reference": "#workshops",
+      "kind": "fragment"
+    },
+    {
+      "from": "index.html",
+      "reference": "register.html",
+      "kind": "local",
+      "localTarget": "register.html",
+      "downloaded": true
+    },
+    {
+      "from": "index.html",
+      "reference": "#workflows",
+      "kind": "fragment"
+    },
+    {
+      "from": "index.html",
+      "reference": "task-manager.html?workshop=1",
+      "kind": "local",
+      "localTarget": "task-manager.html?workshop=1.html",
+      "downloaded": true
+    },
+    {
+      "from": "index.html",
+      "reference": "job-application-cdk.html?workshop=2",
+      "kind": "local",
+      "localTarget": "job-application-cdk.html?workshop=2.html",
+      "downloaded": true
+    },
+    {
+      "from": "index.html",
+      "reference": "s3-file-sharing.html?workshop=3",
+      "kind": "local",
+      "localTarget": "s3-file-sharing.html?workshop=3.html",
+      "downloaded": true
+    },
+    {
+      "from": "index.html",
+      "reference": "ecommerce-catalog.html?workshop=4",
+      "kind": "local",
+      "localTarget": "ecommerce-catalog.html?workshop=4.html",
+      "downloaded": true
+    },
+    {
+      "from": "index.html",
+      "reference": "brownfield-ecommerce.html?workshop=5",
+      "kind": "local",
+      "localTarget": "brownfield-ecommerce.html?workshop=5.html",
+      "downloaded": true
+    },
+    {
+      "from": "index.html",
+      "reference": "https://github.com/awslabs/aidlc-workflows",
+      "kind": "external"
+    },
+    {
+      "from": "index.html",
+      "reference": "https://github.com/awslabs/aidlc-workflows#readme",
+      "kind": "external"
+    },
+    {
+      "from": "index.html",
+      "reference": "#workshops",
+      "kind": "fragment"
+    },
+    {
+      "from": "job-application-cdk.html?workshop=2.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "job-application-cdk.html?workshop=2.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "job-application-cdk.html?workshop=2.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "job-application-cdk.html?workshop=2.html",
+      "reference": "#tab-workflow",
+      "kind": "fragment"
+    },
+    {
+      "from": "job-application-cdk.html?workshop=2.html",
+      "reference": "#tab-prompts",
+      "kind": "fragment"
+    },
+    {
+      "from": "job-application-cdk.html?workshop=2.html",
+      "reference": "https://github.com/awslabs/aidlc-workflows#quick-start",
+      "kind": "external"
+    },
+    {
+      "from": "register.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "register.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "register.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "s3-file-sharing.html?workshop=3.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "s3-file-sharing.html?workshop=3.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "s3-file-sharing.html?workshop=3.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "s3-file-sharing.html?workshop=3.html",
+      "reference": "#tab-workflow",
+      "kind": "fragment"
+    },
+    {
+      "from": "s3-file-sharing.html?workshop=3.html",
+      "reference": "#tab-prompts",
+      "kind": "fragment"
+    },
+    {
+      "from": "s3-file-sharing.html?workshop=3.html",
+      "reference": "https://github.com/awslabs/aidlc-workflows#quick-start",
+      "kind": "external"
+    },
+    {
+      "from": "task-manager.html?workshop=1.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "task-manager.html?workshop=1.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "task-manager.html?workshop=1.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "task-manager.html?workshop=1.html",
+      "reference": "#tab-workflow",
+      "kind": "fragment"
+    },
+    {
+      "from": "task-manager.html?workshop=1.html",
+      "reference": "#tab-prompts",
+      "kind": "fragment"
+    },
+    {
+      "from": "task-manager.html?workshop=1.html",
+      "reference": "https://github.com/awslabs/aidlc-workflows#quick-start",
+      "kind": "external"
+    }
+  ],
+  "externalLinks": [
+    {
+      "from": "brownfield-ecommerce.html?workshop=5.html",
+      "reference": "https://gitlab.aws.dev/enitin/amazon-bedrock-tutorials/-/tree/main/aidlc/workshops/brownfield-ecommerce-aidlc?ref_type=heads",
+      "kind": "external"
+    },
+    {
+      "from": "brownfield-ecommerce.html?workshop=5.html",
+      "reference": "https://github.com/awslabs/aidlc-workflows#quick-start",
+      "kind": "external"
+    },
+    {
+      "from": "ecommerce-catalog.html?workshop=4.html",
+      "reference": "https://github.com/awslabs/aidlc-workflows#quick-start",
+      "kind": "external"
+    },
+    {
+      "from": "index.html",
+      "reference": "https://github.com/awslabs/aidlc-workflows",
+      "kind": "external"
+    },
+    {
+      "from": "index.html",
+      "reference": "https://github.com/awslabs/aidlc-workflows#readme",
+      "kind": "external"
+    },
+    {
+      "from": "job-application-cdk.html?workshop=2.html",
+      "reference": "https://github.com/awslabs/aidlc-workflows#quick-start",
+      "kind": "external"
+    },
+    {
+      "from": "s3-file-sharing.html?workshop=3.html",
+      "reference": "https://github.com/awslabs/aidlc-workflows#quick-start",
+      "kind": "external"
+    },
+    {
+      "from": "task-manager.html?workshop=1.html",
+      "reference": "https://github.com/awslabs/aidlc-workflows#quick-start",
+      "kind": "external"
+    }
+  ],
+  "localLinks": [
+    {
+      "from": "brownfield-ecommerce.html?workshop=5.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "brownfield-ecommerce.html?workshop=5.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "brownfield-ecommerce.html?workshop=5.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "ecommerce-catalog.html?workshop=4.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "ecommerce-catalog.html?workshop=4.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "ecommerce-catalog.html?workshop=4.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "index.html",
+      "reference": "register.html",
+      "kind": "local",
+      "localTarget": "register.html",
+      "downloaded": true
+    },
+    {
+      "from": "index.html",
+      "reference": "task-manager.html?workshop=1",
+      "kind": "local",
+      "localTarget": "task-manager.html?workshop=1.html",
+      "downloaded": true
+    },
+    {
+      "from": "index.html",
+      "reference": "job-application-cdk.html?workshop=2",
+      "kind": "local",
+      "localTarget": "job-application-cdk.html?workshop=2.html",
+      "downloaded": true
+    },
+    {
+      "from": "index.html",
+      "reference": "s3-file-sharing.html?workshop=3",
+      "kind": "local",
+      "localTarget": "s3-file-sharing.html?workshop=3.html",
+      "downloaded": true
+    },
+    {
+      "from": "index.html",
+      "reference": "ecommerce-catalog.html?workshop=4",
+      "kind": "local",
+      "localTarget": "ecommerce-catalog.html?workshop=4.html",
+      "downloaded": true
+    },
+    {
+      "from": "index.html",
+      "reference": "brownfield-ecommerce.html?workshop=5",
+      "kind": "local",
+      "localTarget": "brownfield-ecommerce.html?workshop=5.html",
+      "downloaded": true
+    },
+    {
+      "from": "job-application-cdk.html?workshop=2.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "job-application-cdk.html?workshop=2.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "job-application-cdk.html?workshop=2.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "register.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "register.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "register.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "s3-file-sharing.html?workshop=3.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "s3-file-sharing.html?workshop=3.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "s3-file-sharing.html?workshop=3.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "task-manager.html?workshop=1.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "task-manager.html?workshop=1.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    },
+    {
+      "from": "task-manager.html?workshop=1.html",
+      "reference": "index.html",
+      "kind": "local",
+      "localTarget": "index.html",
+      "downloaded": true
+    }
+  ],
+  "fragmentLinks": [
+    {
+      "from": "ecommerce-catalog.html?workshop=4.html",
+      "reference": "#tab-workflow",
+      "kind": "fragment"
+    },
+    {
+      "from": "ecommerce-catalog.html?workshop=4.html",
+      "reference": "#tab-prompts",
+      "kind": "fragment"
+    },
+    {
+      "from": "index.html",
+      "reference": "#",
+      "kind": "fragment"
+    },
+    {
+      "from": "index.html",
+      "reference": "#home",
+      "kind": "fragment"
+    },
+    {
+      "from": "index.html",
+      "reference": "#workshops",
+      "kind": "fragment"
+    },
+    {
+      "from": "index.html",
+      "reference": "#workflows",
+      "kind": "fragment"
+    },
+    {
+      "from": "index.html",
+      "reference": "#workshops",
+      "kind": "fragment"
+    },
+    {
+      "from": "index.html",
+      "reference": "#workflows",
+      "kind": "fragment"
+    },
+    {
+      "from": "index.html",
+      "reference": "#workshops",
+      "kind": "fragment"
+    },
+    {
+      "from": "job-application-cdk.html?workshop=2.html",
+      "reference": "#tab-workflow",
+      "kind": "fragment"
+    },
+    {
+      "from": "job-application-cdk.html?workshop=2.html",
+      "reference": "#tab-prompts",
+      "kind": "fragment"
+    },
+    {
+      "from": "s3-file-sharing.html?workshop=3.html",
+      "reference": "#tab-workflow",
+      "kind": "fragment"
+    },
+    {
+      "from": "s3-file-sharing.html?workshop=3.html",
+      "reference": "#tab-prompts",
+      "kind": "fragment"
+    },
+    {
+      "from": "task-manager.html?workshop=1.html",
+      "reference": "#tab-workflow",
+      "kind": "fragment"
+    },
+    {
+      "from": "task-manager.html?workshop=1.html",
+      "reference": "#tab-prompts",
+      "kind": "fragment"
+    }
+  ],
+  "missingLocalLinks": []
+}

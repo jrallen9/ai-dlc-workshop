@@ -1,0 +1,360 @@
+{
+  "generatedAt": "2026-04-25T19:11:49.994Z",
+  "localAssets": [
+    {
+      "path": "ecommerce-catalog.js",
+      "type": "javascript",
+      "sizeBytes": 1102,
+      "sha256": "828011f64f95629cce3ee2019b2c19c7a6e5a56fcf894b26dbe7e422f9d32990",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/ecommerce-catalog.js"
+    },
+    {
+      "path": "job-application-cdk.js",
+      "type": "javascript",
+      "sizeBytes": 925,
+      "sha256": "a17e8ece838d9eb27a986c1f50038ac878b98dbf600afd17e5a00c2c35bed7bd",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/job-application-cdk.js"
+    },
+    {
+      "path": "register.js",
+      "type": "javascript",
+      "sizeBytes": 3937,
+      "sha256": "d32d0ab3e6f271dfbeb65ca086f153cddac1681b561f382a672f915d3a76511c",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/register.js"
+    },
+    {
+      "path": "s3-file-sharing.js",
+      "type": "javascript",
+      "sizeBytes": 3846,
+      "sha256": "fc28eb9bd7dc485429affe0f2be7c62e7bfb32e76955f985ddbe740fc80db74a",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/s3-file-sharing.js"
+    },
+    {
+      "path": "script.js",
+      "type": "javascript",
+      "sizeBytes": 14748,
+      "sha256": "db567d85b0a3871b768deb2d392589b3cd4e469c4828d195b7cc184b04331020",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/script.js"
+    },
+    {
+      "path": "styles.css",
+      "type": "css",
+      "sizeBytes": 3874,
+      "sha256": "e7ac1decc6fe54ebfaef9a5703973cc10b942e5e6aa481652d69b9fade38b785",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/styles.css"
+    },
+    {
+      "path": "task-manager.js",
+      "type": "javascript",
+      "sizeBytes": 925,
+      "sha256": "a17e8ece838d9eb27a986c1f50038ac878b98dbf600afd17e5a00c2c35bed7bd",
+      "sourceUrl": "https://d3h5h54wint40o.cloudfront.net/task-manager.js"
+    }
+  ],
+  "referencedAssets": [
+    {
+      "from": "brownfield-ecommerce.html?workshop=5.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "brownfield-ecommerce.html?workshop=5.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "brownfield-ecommerce.html?workshop=5.html",
+      "reference": "styles.css",
+      "kind": "local",
+      "localTarget": "styles.css",
+      "downloaded": true
+    },
+    {
+      "from": "brownfield-ecommerce.html?workshop=5.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
+      "kind": "external"
+    },
+    {
+      "from": "ecommerce-catalog.html?workshop=4.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "ecommerce-catalog.html?workshop=4.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "ecommerce-catalog.html?workshop=4.html",
+      "reference": "styles.css",
+      "kind": "local",
+      "localTarget": "styles.css",
+      "downloaded": true
+    },
+    {
+      "from": "ecommerce-catalog.html?workshop=4.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
+      "kind": "external"
+    },
+    {
+      "from": "ecommerce-catalog.html?workshop=4.html",
+      "reference": "ecommerce-catalog.js",
+      "kind": "local",
+      "localTarget": "ecommerce-catalog.js",
+      "downloaded": true
+    },
+    {
+      "from": "index.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "index.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "index.html",
+      "reference": "styles.css",
+      "kind": "local",
+      "localTarget": "styles.css",
+      "downloaded": true
+    },
+    {
+      "from": "index.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
+      "kind": "external"
+    },
+    {
+      "from": "index.html",
+      "reference": "script.js",
+      "kind": "local",
+      "localTarget": "script.js",
+      "downloaded": true
+    },
+    {
+      "from": "job-application-cdk.html?workshop=2.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "job-application-cdk.html?workshop=2.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "job-application-cdk.html?workshop=2.html",
+      "reference": "styles.css",
+      "kind": "local",
+      "localTarget": "styles.css",
+      "downloaded": true
+    },
+    {
+      "from": "job-application-cdk.html?workshop=2.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
+      "kind": "external"
+    },
+    {
+      "from": "job-application-cdk.html?workshop=2.html",
+      "reference": "job-application-cdk.js",
+      "kind": "local",
+      "localTarget": "job-application-cdk.js",
+      "downloaded": true
+    },
+    {
+      "from": "register.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "register.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "register.html",
+      "reference": "styles.css",
+      "kind": "local",
+      "localTarget": "styles.css",
+      "downloaded": true
+    },
+    {
+      "from": "register.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
+      "kind": "external"
+    },
+    {
+      "from": "register.html",
+      "reference": "register.js",
+      "kind": "local",
+      "localTarget": "register.js",
+      "downloaded": true
+    },
+    {
+      "from": "s3-file-sharing.html?workshop=3.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "s3-file-sharing.html?workshop=3.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "s3-file-sharing.html?workshop=3.html",
+      "reference": "styles.css",
+      "kind": "local",
+      "localTarget": "styles.css",
+      "downloaded": true
+    },
+    {
+      "from": "s3-file-sharing.html?workshop=3.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
+      "kind": "external"
+    },
+    {
+      "from": "s3-file-sharing.html?workshop=3.html",
+      "reference": "s3-file-sharing.js",
+      "kind": "local",
+      "localTarget": "s3-file-sharing.js",
+      "downloaded": true
+    },
+    {
+      "from": "task-manager.html?workshop=1.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "task-manager.html?workshop=1.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "task-manager.html?workshop=1.html",
+      "reference": "styles.css",
+      "kind": "local",
+      "localTarget": "styles.css",
+      "downloaded": true
+    },
+    {
+      "from": "task-manager.html?workshop=1.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
+      "kind": "external"
+    },
+    {
+      "from": "task-manager.html?workshop=1.html",
+      "reference": "task-manager.js",
+      "kind": "local",
+      "localTarget": "task-manager.js",
+      "downloaded": true
+    }
+  ],
+  "externalAssets": [
+    {
+      "from": "brownfield-ecommerce.html?workshop=5.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "brownfield-ecommerce.html?workshop=5.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "brownfield-ecommerce.html?workshop=5.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
+      "kind": "external"
+    },
+    {
+      "from": "ecommerce-catalog.html?workshop=4.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "ecommerce-catalog.html?workshop=4.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "ecommerce-catalog.html?workshop=4.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
+      "kind": "external"
+    },
+    {
+      "from": "index.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "index.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "index.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
+      "kind": "external"
+    },
+    {
+      "from": "job-application-cdk.html?workshop=2.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "job-application-cdk.html?workshop=2.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "job-application-cdk.html?workshop=2.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
+      "kind": "external"
+    },
+    {
+      "from": "register.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "register.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "register.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
+      "kind": "external"
+    },
+    {
+      "from": "s3-file-sharing.html?workshop=3.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "s3-file-sharing.html?workshop=3.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "s3-file-sharing.html?workshop=3.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
+      "kind": "external"
+    },
+    {
+      "from": "task-manager.html?workshop=1.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "task-manager.html?workshop=1.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css",
+      "kind": "external"
+    },
+    {
+      "from": "task-manager.html?workshop=1.html",
+      "reference": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
+      "kind": "external"
+    }
+  ],
+  "missingLocalAssets": []
+}

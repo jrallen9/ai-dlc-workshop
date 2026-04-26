@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop 4: E-Commerce Product Catalog - AI-DLC Workshop</title>
+    <meta name="description" content="Build a product catalog system with incremental unit-by-unit development using AI-DLC methodology.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .method-tabs { border: 2px solid var(--aws-orange); border-radius: 8px 8px 0 0; background: var(--aws-squid-ink); padding: 0; }
+        .method-tabs .nav-item { flex: 1; }
+        .method-tabs .nav-link { font-weight: 600; padding: .85rem 1.5rem; color: #aaa; border: none; border-radius: 0; text-align: center; transition: all .2s; }
+        .method-tabs .nav-link:hover { color: #fff; background: rgba(255,153,0,.1); }
+        .method-tabs .nav-link.active { background: var(--aws-orange); color: var(--aws-squid-ink); }
+        .method-tabs .nav-item:first-child .nav-link { border-radius: 6px 0 0 0; }
+        .method-tabs .nav-item:last-child .nav-link { border-radius: 0 6px 0 0; }
+        .tab-content-bordered { border: 2px solid var(--aws-orange); border-top: none; border-radius: 0 0 8px 8px; padding: 1.5rem; background: #fff; }
+        .think-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: .75rem 1rem; border-radius: 0 4px 4px 0; margin: .75rem 0; }
+        .gate-box { background: #d4edda; border-left: 4px solid #1D8102; padding: .5rem 1rem; border-radius: 0 4px 4px 0; margin: .5rem 0; }
+        .context-reset { background: #fce4ec; border-left: 4px solid #e91e63; padding: .5rem 1rem; border-radius: 0 4px 4px 0; margin: .75rem 0; font-size: .9rem; }
+        .note-box { background: #E7F6FD; border-left: 4px solid var(--aws-blue); padding: .75rem 1rem; border-radius: 0 4px 4px 0; margin: .5rem 0; }
+        .phase-divider { padding: .75rem 1rem; border-radius: 6px; font-weight: 600; font-size: 1.1rem; margin: 2rem 0 1.5rem; }
+        .phase-inception { background: #bbdefb; color: #1565c0; }
+        .phase-construction { background: #c8e6c9; color: #2e7d32; }
+        .phase-operations { background: #fff59d; color: #f57f17; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="bi bi-cpu"></i> AI-DLC Workshop Series</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li></ul>
+            </div>
+        </div>
+    </nav>
+    <section class="workshop-detail">
+        <div class="container">
+            <a href="index.html" class="btn btn-outline-primary back-btn"><i class="bi bi-arrow-left"></i> Back to Workshops</a>
+            <h2 class="mb-4"><span id="workshop-number"></span>E-Commerce Product Catalog</h2>
+            <p class="lead">Duration: 2-3 hours | Build a product catalog system using AI-DLC methodology</p>
+            <div class="vision-section">
+                <div class="alert alert-info"><i class="bi bi-info-circle"></i> This workshop demonstrates incremental unit-by-unit development. Build, test, and validate each unit before moving forward.</div>
+                <h3>Workshop Overview</h3>
+                <p>Apply AI-DLC methodology to build an e-commerce product catalog. Customers can browse products, search, view details, and add items to cart. Admins can manage products and inventory.</p>
+                <h4 class="mt-4">Prerequisites</h4>
+                <ul>
+                    <li>Basic programming knowledge</li>
+                    <li>AWS account (free tier sufficient)</li>
+                    <li>Access to AI assistant (Kiro, Claude, Cursor, etc.)</li>
+                    <li>Code editor</li>
+                </ul>
+            </div>
+            <h3 class="mt-5 mb-3">Workshop Activities</h3>
+            <ul class="nav nav-tabs method-tabs" role="tablist">
+                <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#tab-workflow" role="tab"><i class="bi bi-diagram-3"></i> Using AI-DLC Workflow</a></li>
+                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tab-prompts" role="tab"><i class="bi bi-clipboard"></i> Copy-Paste Prompts</a></li>
+            </ul>
+            <div class="tab-content tab-content-bordered">
+<!-- ==================== AI-DLC WORKFLOW TAB ==================== -->
+<div class="tab-pane fade show active" id="tab-workflow" role="tabpanel">
+    <div class="alert alert-info"><i class="bi bi-info-circle"></i> <strong>Prerequisite:</strong> AI-DLC Workflow rules installed in your coding assistant. <a href="https://github.com/awslabs/aidlc-workflows#quick-start" target="_blank">Setup instructions →</a></div>
+    <div class="alert alert-warning"><i class="bi bi-exclamation-triangle"></i> AI-DLC Workflow is adaptive. Based on how you answer questions, the complexity of your request, and the AI's assessment, some stages may be skipped, combined, or run at different levels of detail. The workflow tells you what it's doing — follow its lead and approve or request changes at each gate.</div>
+
+    <div class="mb-4">
+        <div class="prompt-title"><span class="step-badge">Start</span> Activity 1: Start the Workflow (10 minutes)</div>
+        <div class="vision-section" style="border-radius:0 0 8px 8px;margin-top:0">
+            <p>You kick off the entire workflow with a single prompt describing what you want to build. AI-DLC Workflow takes it from there.</p>
+            <div class="think-box">💡 <strong>Think about your product catalog:</strong> This one prompt captures the intent — customers browsing and buying, admins managing. The workflow handles the phasing automatically.</div>
+            <p><strong>Open a new chat and type:</strong></p>
+            <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('wf-0',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="wf-0">Using AI-DLC, build a product catalog system where customers can browse products, search, view details, and add items to cart. Admins can manage products and inventory.</pre></div>
+            <p>AI-DLC Workflow activates, displays a welcome message, scans your workspace, sets up <code>aidlc-docs/</code>, and proceeds to the next stage.</p>
+        </div>
+    </div>
+
+    <div class="phase-divider phase-inception">🔵 INCEPTION PHASE — No code is generated. This phase is about understanding what to build and why.</div>
+
+    <div class="mb-4">
+        <div class="prompt-title"><span class="step-badge">Inception</span> Activity 2: Requirements Analysis (~15 minutes)</div>
+        <div class="vision-section" style="border-radius:0 0 8px 8px;margin-top:0">
+            <p>The AI analyzes your request and asks clarifying questions about anything unclear. You'll also see a question about enabling security extension rules.</p>
+            <div class="think-box">💡 <strong>Think about your product catalog:</strong> What product categories exist? How does search work — by name, category, price range? What does the cart look like? What can admins do — CRUD products, manage inventory, view orders?</div>
+            <p><strong>When the AI presents the questions file:</strong> Open it, fill in your <code>[Answer]:</code> tags. For the security extension question, answer "No" since this is a prototype. Then tell the AI:</p>
+            <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('wf-1',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="wf-1">I have answered the clarification questions. Please re-read the file and proceed.</pre></div>
+            <p>The AI may ask follow-up questions. Once resolved, it generates a requirements document.</p>
+            <div class="gate-box">📋 The AI will present an approval gate — review the output and approve to continue, or request changes if needed.</div>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <div class="prompt-title"><span class="step-badge">Inception</span> Activity 3: User Stories (~20 minutes)</div>
+        <div class="vision-section" style="border-radius:0 0 8px 8px;margin-top:0">
+            <p>The AI creates user stories that become the contract for what gets built. It runs in two parts: first it plans how to structure the stories, then it generates them with personas and acceptance criteria.</p>
+            <div class="think-box">💡 <strong>Think about your product catalog:</strong> You'll get stories for both customer-facing features (browsing, search, cart) and admin features (product management, inventory). The acceptance criteria define the contract for code generation.</div>
+            <p><strong>Part 1 — Planning:</strong> The AI creates a story generation plan with questions. Open the plan file, fill in your answers, then tell the AI you're done.</p>
+            <div class="gate-box">📋 The AI will present an approval gate — review the output and approve to continue, or request changes if needed.</div>
+            <p class="mt-3"><strong>Part 2 — Generation:</strong> The AI executes the plan step by step, marking checkboxes as it goes.</p>
+            <div class="gate-box">📋 The AI will present an approval gate — review the output and approve to continue, or request changes if needed.</div>
+            <div class="context-reset">💡 <strong>Context reset (optional):</strong> For longer sessions, starting a fresh chat here helps maintain output quality. Resume with: <code>Go to aidlc-docs/aidlc-state.md, find the first unchecked item, then go to the corresponding plan file and resume from that point.</code> For shorter workshops, you can skip this and continue in the same chat.</div>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <div class="prompt-title"><span class="step-badge">Inception</span> Activity 4: Workflow Planning + Units (~10 minutes)</div>
+        <div class="vision-section" style="border-radius:0 0 8px 8px;margin-top:0">
+            <p>The AI determines which Construction stages to run and decomposes the system into multiple units that can be built independently. Units are ordered so everything is built properly.</p>
+            <div class="think-box">💡 <strong>Think about your product catalog:</strong> Expect units like product catalog/browsing, search, shopping cart, and admin management. The ordering matters — data models and core catalog before cart and admin features.</div>
+            <p>If you want deployment and Infrastructure Design is marked SKIP:</p>
+            <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('wf-2',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="wf-2">Add Infrastructure Design to the plan. We need deployment to AWS.</pre></div>
+            <div class="gate-box mt-2">📋 The AI will present an approval gate — review the execution plan and approve to continue, or request changes if needed.</div>
+            <div class="context-reset">💡 <strong>Context reset (optional):</strong> Starting a fresh chat before Construction can help if the Inception phase was long. Skip if things are going smoothly.</div>
+        </div>
+    </div>
+
+    <div class="phase-divider phase-construction">🟢 CONSTRUCTION PHASE</div>
+
+    <div class="mb-4">
+        <div class="prompt-title"><span class="step-badge">Construction</span> Activity 5: Functional Design (~20 minutes)</div>
+        <div class="vision-section" style="border-radius:0 0 8px 8px;margin-top:0">
+            <p>AI-DLC Workflow designs the detailed component model — all components, data models, APIs, and how they interact. No code yet.</p>
+            <div class="think-box">💡 <strong>Think about your product catalog:</strong> The design will cover components for product management, catalog browsing, search, cart, and admin. Watch how the AI maps each component back to user stories.</div>
+            <div class="gate-box">📋 The AI will present an approval gate — review the output and approve to continue, or request changes if needed.</div>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <div class="prompt-title"><span class="step-badge">Construction</span> Activity 6: Code Generation (~60 minutes)</div>
+        <div class="vision-section" style="border-radius:0 0 8px 8px;margin-top:0">
+            <p>The main build activity. AI-DLC Workflow's Construction phase has a built-in per-unit loop — for each unit of work, it runs design and code generation stages in sequence, completing each unit fully before moving to the next. The approval gate after each unit says "Continue to next unit" or "Proceed to Build &amp; Test." This is less explicit than a manual tracker (like the one in the Copy-Paste Prompts tab), but the workflow handles the cycling automatically.</p>
+            <div class="think-box">💡 <strong>Think about your product catalog:</strong> The AI will implement each unit, building data models, backend APIs, and frontend components. Watch how it ensures previously implemented units still work as new ones are added. After all units, it runs comprehensive end-to-end tests.</div>
+            <p><strong>Part 1 — Planning:</strong> The AI creates a code generation plan with numbered, checkboxed steps.</p>
+            <div class="gate-box">📋 The AI will present an approval gate — review the output and approve to continue, or request changes if needed.</div>
+            <p class="mt-3"><strong>Part 2 — Generation:</strong> The AI implements each unit, tests it, validates integration, and marks it complete before moving to the next.</p>
+            <div class="gate-box">📋 The AI will present an approval gate when done — review the output and approve to continue, or request changes if needed.</div>
+            <div class="context-reset">💡 <strong>Context reset (optional):</strong> Consider a fresh chat if the session has been running long. Skip if things are going smoothly.</div>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <div class="prompt-title"><span class="step-badge">Construction</span> Activity 7: Infrastructure Design + Deployment (~20 minutes)</div>
+        <div class="vision-section" style="border-radius:0 0 8px 8px;margin-top:0">
+            <p>The AI designs the AWS deployment architecture, creates infrastructure as code for all resources, and deploys to us-west-2.</p>
+            <div class="think-box">💡 <strong>Think about your product catalog:</strong> The infrastructure needs to support both the frontend (product browsing, cart) and backend (APIs, data storage). The AI will determine the right AWS services based on your design.</div>
+            <div class="gate-box">📋 The AI will present approval gates at each step — review and approve to continue, or request changes if needed.</div>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <div class="prompt-title"><span class="step-badge">Construction</span> Build and Test (~10 minutes)</div>
+        <div class="vision-section" style="border-radius:0 0 8px 8px;margin-top:0">
+            <p>AI-DLC Workflow generates build and test instructions. Verify the deployed application works end-to-end.</p>
+            <div class="note-box">The exact directory names, file names, and URLs will vary. Check the build instructions for the exact values.</div>
+        </div>
+    </div>
+
+    <div class="phase-divider phase-operations">🟡 OPERATIONS PHASE</div>
+
+    <div class="mb-4">
+        <div class="prompt-title"><span class="step-badge">Operations</span> Activity 8: Operations Discussion (~10 minutes)</div>
+        <div class="vision-section" style="border-radius:0 0 8px 8px;margin-top:0">
+            <p>AI-DLC Workflow's Operations phase is a placeholder for future expansion. This is a group discussion.</p>
+            <div class="think-box">💡 <strong>Think about your product catalog:</strong> How would you handle product image uploads? What about scaling during sales events? How would you add analytics to track popular products? What about user authentication for the cart?</div>
+            <p><strong>Discuss as a group:</strong></p>
+            <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('wf-3',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="wf-3">Now that we've built and deployed our product catalog, discuss how AI would help with:
+1. Adding product recommendations
+2. Implementing user authentication
+3. Adding an analytics dashboard
+4. Scaling during high-traffic events
+
+Please explain how this would work for our specific application.</pre></div>
+        </div>
+    </div>
+
+    <div class="vision-section">
+        <h4><i class="bi bi-lightbulb"></i> Tips</h4>
+        <ul>
+            <li><strong>Answer questions in the files, not in chat.</strong> Open the markdown file, fill in your <code>[Answer]:</code> tags, then tell the AI to re-read.</li>
+            <li><strong>Context resets are optional but valuable for long sessions.</strong> If the AI starts losing track of earlier decisions or output quality drops, start a fresh chat and resume from <code>aidlc-state.md</code>. For short workshops, you can often skip this.</li>
+            <li><strong>Don't edit generated code directly.</strong> Tell the AI to update the design first, then regenerate.</li>
+            <li><strong>You're always in control.</strong> Nothing proceeds without your approval. Say "Request Changes" anytime.</li>
+            <li><strong>Check <code>aidlc-state.md</code></strong> to see where you are at any point.</li>
+            <li><strong>File names and structure will vary.</strong> AI-DLC Workflow determines file names, directory structure, and plan steps based on your project.</li>
+        </ul>
+    </div>
+</div>
+<!-- ==================== COPY-PASTE PROMPTS TAB ==================== -->
+<div class="tab-pane fade" id="tab-prompts" role="tabpanel">
+    <div class="alert alert-secondary"><i class="bi bi-clipboard"></i> Copy and paste each prompt into your AI assistant. Follow the activities in order.</div>
+
+    <div class="mb-4">
+        <div class="prompt-title"><span class="step-badge">Setup</span> Activity 1: Setup (10 minutes)</div>
+        <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('p-0',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="p-0">We will work on building an application today. For every front end and backend component we will create a project folder. All documents will reside in the aidlc-docs folder. Throughout our session I'll ask you to plan your work ahead and create an md file for the plan. You may work only after I approve said plan. These plans will always be stored in aidlc-docs/plans folder. You will create many types of documents in the md format. Requirement, features changes documents will reside in aidlc-docs/requirements folder. User stories must be stored in the aidlc-docs/story-artifacts folder. Architecture and Design documents must be stored in the aidlc-docs/design-artifacts folder. All prompts in order must be stored in the aidlc-docs/prompts.md file. Confirm your understanding of this prompt. Create the necessary folders and files for storage, if they do not exist already.</pre></div>
+    </div>
+
+    <div class="mb-4">
+        <div class="prompt-title"><span class="step-badge">Inception</span> Activity 2: Intent Definition (5 minutes)</div>
+        <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('p-1',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="p-1">Intent:
+Build a product catalog system where customers can browse products, search, view details, and add items to cart. Admins can manage products and inventory.
+
+Do not propose solutions yet.
+Acknowledge the intent and confirm understanding.</pre></div>
+        <div class="alert alert-warning mt-2"><strong>Follow-up:</strong> Answer any clarifying questions.</div>
+    </div>
+
+    <div class="mb-4">
+        <div class="prompt-title"><span class="step-badge">Inception</span> Activity 3: User Stories Creation (20 minutes)</div>
+        <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('p-2',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="p-2">Your Role: You are an expert product manager with e-commerce domain expertise. Before you start the task as mentioned below, please do the planning and write your steps in the aidlc-docs/plans/user_stories_plan.md file with checkboxes against each step in the plan. List your Deliverables in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
+
+Your Task: Build comprehensive user stories for the product catalog system based on the intent. Include customer-facing features (browsing, search, cart) and admin features (product management, inventory).
+
+Write the user stories to aidlc-docs/story-artifacts/user_stories.md</pre></div>
+        <div class="alert alert-warning mt-2"><strong>Follow-up:</strong> Review the plan, provide feedback, then respond: <code>I reviewed the plan. Please proceed with the approved approach.</code></div>
+    </div>
+
+    <div class="mb-4">
+        <div class="prompt-title"><span class="step-badge">Inception</span> Activity 4: Units Definition (15 minutes)</div>
+        <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('p-3',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="p-3">Your Role: You are an experienced software architect. Before you start the task as mentioned below, please do the planning and write your steps in the aidlc-docs/plans/units_plan.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
+
+Your Task: Group the user stories in aidlc-docs/story-artifacts/user_stories.md into multiple units that can be built independently. Each unit contains highly cohesive user stories that can be built by a single team. The units are loosely coupled with each other. For each unit, write the respective user stories and acceptance criteria.
+
+Write the units to aidlc-docs/story-artifacts/units.md</pre></div>
+        <div class="alert alert-warning mt-2"><strong>Follow-up:</strong> Review and approve the plan.</div>
+    </div>
+
+    <div class="mb-4">
+        <div class="prompt-title"><span class="step-badge">Construction</span> Activity 5: Domain Model Creation (20 minutes)</div>
+        <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('p-4',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="p-4">Your Role: You are an experienced software architect and engineer. Before you start the task as mentioned below, please do the planning and write your steps in the aidlc-docs/plans/domain_model_plan.md file with checkboxes against each step in the plan. List your Deliverables in the plan file. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
+
+Your Task: Design the domain model to implement all the user stories. This model shall contain all the components, the data models, the APIs, and how the components interact to implement the user stories. The components should be at a business level, do not generate any code yet.
+
+Write the domain model into aidlc-docs/design-artifacts/domain_model.md</pre></div>
+        <div class="alert alert-warning mt-2"><strong>Follow-up:</strong> Review the domain model and provide feedback.</div>
+    </div>
+
+    <div class="mb-4">
+        <div class="prompt-title"><span class="step-badge">Construction</span> Activity 6: Build Units Incrementally (60 minutes)</div>
+        <div class="alert alert-primary"><i class="bi bi-info-circle"></i> <strong>Incremental Development:</strong> Build one unit at a time, test, validate, then move to the next.</div>
+
+        <h5 class="mt-3">Step 6.1: Create Implementation Tracker (5 minutes)</h5>
+        <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('p-5',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="p-5">Your Role: You are an experienced software engineer.
+
+Your Task: 
+1. Review the units in aidlc-docs/story-artifacts/units.md
+2. Create a file aidlc-docs/plans/unit_implementation_tracker.md with:
+   - Total number of units
+   - List of all units with checkboxes (unchecked)
+   - Suggested implementation order
+
+Format:
+# Unit Implementation Tracker
+
+Total Units: X
+
+## Implementation Order
+- [ ] Unit 1: [Name] - [Brief description]
+- [ ] Unit 2: [Name] - [Brief description]
+- [ ] Unit 3: [Name] - [Brief description]
+...
+
+Show me the tracker file.</pre></div>
+
+        <h5 class="mt-4">Step 6.2: Implement Each Unit (50 minutes)</h5>
+        <div class="alert alert-info"><strong>Repeat for each unchecked unit in the tracker:</strong></div>
+        <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('p-6',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="p-6">Your Task: Look at aidlc-docs/plans/unit_implementation_tracker.md and implement the next unchecked unit.
+
+1. Implement ONLY that unit from aidlc-docs/story-artifacts/units.md
+2. Refer to the domain model in aidlc-docs/design-artifacts/domain_model.md
+3. Build data models, backend APIs, and frontend components for this unit
+4. Ensure all previously implemented units still work
+5. Mark the unit as complete in the tracker by checking the checkbox
+
+Tell me which unit you're implementing before you start.</pre></div>
+        <div class="alert alert-warning mt-2"><strong>Test &amp; Validate:</strong><pre class="mb-0">Test the unit you just implemented:
+1. Test this unit's functionality
+2. Test integration with all previous units
+3. Verify all user stories in this unit work
+
+Show me:
+- Test results
+- Updated tracker showing this unit checked off
+- How many units remain
+
+Fix any issues before proceeding to the next unit.</pre></div>
+        <div class="alert alert-success mt-2"><strong>Repeat:</strong> Continue implementing units one by one until all units in the tracker are checked off.</div>
+
+        <h5 class="mt-4">Step 6.3: Final Integration Testing (5 minutes)</h5>
+        <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('p-7',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="p-7">Your Task: All units in aidlc-docs/plans/unit_implementation_tracker.md should now be checked off. Run comprehensive end-to-end tests.
+
+Test:
+1. All units work independently
+2. All integrations work correctly
+3. Complete user flows work end-to-end
+4. All user stories are satisfied
+
+Show me complete test results and the final tracker with all units checked.</pre></div>
+    </div>
+
+    <div class="mb-4">
+        <div class="prompt-title"><span class="step-badge">Operations</span> Activity 7: Deploy the Application (20 minutes)</div>
+        <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('p-8',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="p-8">Your Role: You are an experienced Cloud Architect. Before you start the task as mentioned below, please do the planning and write your steps in the aidlc-docs/plans/deployment_plan.md file with checkboxes against each step in the plan. List your Deliverables in the plan file. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
+
+Your Task: Deploy the application to AWS. Create infrastructure as code for all resources. Deploy to us-west-2 region.</pre></div>
+        <div class="alert alert-warning mt-2"><strong>Follow-up:</strong> Review deployment and test the live application.</div>
+    </div>
+
+    <!-- Expected Outcomes -->
+    <div class="mt-5">
+        <h3>Expected Outcomes</h3>
+        <ul>
+            <li>✅ A working product catalog system deployed to AWS</li>
+            <li>✅ Complete AI-DLC documentation trail</li>
+            <li>✅ Infrastructure as code</li>
+            <li>✅ Experience building units incrementally with test/validate workflow</li>
+            <li>✅ Understanding of AI-DLC methodology</li>
+        </ul>
+    </div>
+    <div class="mt-4">
+        <h3>Extensions (Optional)</h3>
+        <ul>
+            <li>Add product recommendations</li>
+            <li>Implement user authentication</li>
+            <li>Add analytics dashboard</li>
+            <li>Implement image upload</li>
+        </ul>
+    </div>
+</div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container"><p class="mb-0">&copy; 2026 AWS AI-DLC Workshop Series</p></div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="ecommerce-catalog.js"></script>
+    <script>
+    function copyId(id, event) {
+        const el = document.getElementById(id);
+        navigator.clipboard.writeText(el.textContent.trim()).then(() => {
+            const btn = event.target.closest('button');
+            const orig = btn.innerHTML;
+            btn.innerHTML = '<i class="bi bi-check"></i> Copied!';
+            btn.classList.add('btn-success'); btn.classList.remove('btn-light');
+            setTimeout(() => { btn.innerHTML = orig; btn.classList.remove('btn-success'); btn.classList.add('btn-light'); }, 2000);
+        });
+    }
+    </script>
+</body>
+</html>

@@ -127,19 +127,19 @@ ai-dlc-workshop/
 
 ## Site Crawl Plan
 
-- [ ] Create a controlled crawl of the CloudFront-hosted site.
-- [ ] Save an untouched mirror under `source-mirror/raw/`.
-- [ ] Generate crawl metadata under `source-mirror/manifests/`, including:
-  - [ ] downloaded pages
-  - [ ] CSS files
-  - [ ] JavaScript files
-  - [ ] images
-  - [ ] fonts
-  - [ ] external links
-  - [ ] missing or blocked assets
-- [ ] Keep the raw mirror separate from the cleaned local website so future crawls can be compared without overwriting intentional edits.
-- [ ] Normalize local paths in the working copy under `website/public/`.
-- [ ] Verify that `website/public/index.html` loads locally with all required assets.
+- [x] Create a controlled crawl of the CloudFront-hosted site.
+- [x] Save an untouched mirror under `source-mirror/raw/`.
+- [x] Generate crawl metadata under `source-mirror/manifests/`, including:
+  - [x] downloaded pages
+  - [x] CSS files
+  - [x] JavaScript files
+  - [x] images
+  - [x] fonts
+  - [x] external links
+  - [x] missing or blocked assets
+- [x] Keep the raw mirror separate from the cleaned local website so future crawls can be compared without overwriting intentional edits.
+- [x] Normalize local paths in the working copy under `website/public/`.
+- [x] Verify that `website/public/index.html` loads locally with all required assets.
 
 Preferred crawl tools:
 
@@ -157,16 +157,16 @@ The design extraction should produce reusable documentation, not just copied fil
 
 Capture and document:
 
-- [ ] page structure and navigation
-- [ ] typography
-- [ ] color palette
-- [ ] spacing system
-- [ ] major components
-- [ ] buttons and links
-- [ ] workshop cards or workshop navigation
-- [ ] responsive behavior
-- [ ] image and media usage
-- [ ] JavaScript-driven interactions
+- [x] page structure and navigation
+- [x] typography
+- [x] color palette
+- [x] spacing system
+- [x] major components
+- [x] buttons and links
+- [x] workshop cards or workshop navigation
+- [x] responsive behavior
+- [x] image and media usage
+- [x] JavaScript-driven interactions
 
 Recommended outputs:
 
@@ -193,23 +193,23 @@ workshops/workshop-05/
 
 For each workshop, extract:
 
-- [ ] title and summary
-- [ ] source page or source section
-- [ ] instructions
-- [ ] exercises
-- [ ] starter files
-- [ ] solution files, if present
-- [ ] images and supporting assets
-- [ ] external references
-- [ ] any scripts or code samples
+- [x] title and summary
+- [x] source page or source section
+- [x] instructions
+- [x] exercises
+- [x] starter files
+- [x] solution files, if present
+- [x] images and supporting assets
+- [x] external references
+- [x] any scripts or code samples
 
 Each workshop folder should have its own `README.md` with:
 
-- [ ] workshop purpose
-- [ ] prerequisites
-- [ ] how to run or view the material
-- [ ] folder contents
-- [ ] known dependencies
+- [x] workshop purpose
+- [x] prerequisites
+- [x] how to run or view the material
+- [x] folder contents
+- [x] known dependencies
 
 If the original site stores all workshop content in one page, we will split it into separate workshop folders while retaining source references in the research docs.
 
@@ -223,12 +223,12 @@ server/java-static-server/
 
 Recommended implementation:
 
-- [ ] Java 21 or Java 17
-- [ ] Maven project
-- [ ] small static file server
-- [ ] default document root: `../../website/public`
-- [ ] default port: `8080`
-- [ ] configurable host, port, and document root through command-line arguments or environment variables
+- [x] Java 21 or Java 17
+- [x] Maven project
+- [x] small static file server
+- [x] default document root: `../../website/public`
+- [x] default port: `8080`
+- [x] configurable host, port, and document root through command-line arguments or environment variables
 
 Example run target from WSL:
 
@@ -252,8 +252,8 @@ Add repository hygiene early:
 
 - [x] `README.md` with project purpose and quickstart
 - [x] `.gitignore` for temporary crawl caches, build output, and local logs
-- [ ] docs for crawl refresh workflow
-- [ ] docs for WSL Java hosting
+- [x] docs for crawl refresh workflow
+- [x] docs for WSL Java hosting
 - [x] clear separation of raw mirrored content and curated website code
 
 Recommended `.gitignore` categories:
@@ -280,32 +280,32 @@ We should decide after the first crawl whether `source-mirror/raw/` should be co
 
 ### Phase 2: Source Site Crawl
 
-- [ ] Crawl `https://d3h5h54wint40o.cloudfront.net/index.html`.
-- [ ] Store the untouched mirror under `source-mirror/raw/`.
-- [ ] Create asset and link inventories.
-- [ ] Identify whether workshops 1-5 are static HTML, linked pages, embedded sections, or JavaScript-rendered content.
+- [x] Crawl `https://d3h5h54wint40o.cloudfront.net/index.html`.
+- [x] Store the untouched mirror under `source-mirror/raw/`.
+- [x] Create asset and link inventories.
+- [x] Identify whether workshops 1-5 are static HTML, linked pages, embedded sections, or JavaScript-rendered content.
 
 ### Phase 3: Website Reconstruction
 
-- [ ] Copy or transform the usable site into `website/public/`.
-- [ ] Normalize asset paths for local hosting.
-- [ ] Preserve the original design and layout.
-- [ ] Add design extraction notes and screenshots.
+- [x] Copy or transform the usable site into `website/public/`.
+- [x] Normalize asset paths for local hosting.
+- [x] Preserve the original design and layout.
+- [x] Add design extraction notes and document screenshot capture status.
 
 ### Phase 4: Workshop Organization
 
-- [ ] Split workshop content into `workshops/workshop-01` through `workshops/workshop-05`.
-- [ ] Add per-workshop README files.
-- [ ] Copy or reference workshop assets.
-- [ ] Document any missing or external-only resources.
+- [x] Split workshop content into `workshops/workshop-01` through `workshops/workshop-05`.
+- [x] Add per-workshop README files.
+- [x] Copy or reference workshop assets.
+- [x] Document any missing or external-only resources.
 
 ### Phase 5: Java Static Server
 
-- [ ] Create the Java static server project.
-- [ ] Add Maven build configuration.
-- [ ] Serve `website/public`.
-- [ ] Add WSL Ubuntu run instructions.
-- [ ] Test at `http://localhost:8080/`.
+- [x] Create the Java static server project.
+- [x] Add Maven build configuration.
+- [x] Serve `website/public`.
+- [x] Add WSL Ubuntu run instructions.
+- [x] Test at `http://localhost:8080/`.
 
 ### Phase 6: Verification
 
@@ -325,8 +325,8 @@ We should decide after the first crawl whether `source-mirror/raw/` should be co
 ## Initial Acceptance Criteria
 
 - [x] The project has a clear GitHub-ready folder structure.
-- [ ] The website can be served locally from WSL Ubuntu using a Java webserver.
-- [ ] The source site is crawled with a reproducible process.
-- [ ] Design and layout details are documented.
-- [ ] Workshops 1-5 are extracted into separate, organized folders.
-- [ ] The project includes runbooks for refreshing the crawl and running the local server.
+- [x] The website can be served locally from WSL Ubuntu using a Java webserver.
+- [x] The source site is crawled with a reproducible process.
+- [x] Design and layout details are documented.
+- [x] Workshops 1-5 are extracted into separate, organized folders.
+- [x] The project includes runbooks for refreshing the crawl and running the local server.

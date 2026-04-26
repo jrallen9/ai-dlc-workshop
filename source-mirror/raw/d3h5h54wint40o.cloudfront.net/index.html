@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-DLC Workshop Series - Learn AI-Driven Development Life Cycle</title>
+    <meta name="description" content="Learn AI-DLC methodology through hands-on workshops. Build applications using Inception, Construction, and Operations phases with adaptive workflows and transparent checkpoints.">
+    <meta property="og:title" content="AI-DLC Workshop Series - Learn AI-Driven Development Life Cycle">
+    <meta property="og:description" content="Learn AI-DLC methodology through hands-on workshops. Build applications using Inception, Construction, and Operations phases with adaptive workflows and transparent checkpoints.">
+    <meta property="og:type" content="website">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="bi bi-cpu"></i> AI-DLC Workshop Series</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#workshops">Workshops</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#workflows">Workflows</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-4">AI-Driven Development Life Cycle</h1>
+            <p class="lead mb-4">Learn AI-DLC methodology through hands-on workshop practice</p>
+            <div>
+                <a href="#workshops" class="btn btn-light btn-lg me-2">Explore Content</a>
+                <a href="register.html" class="btn btn-outline-light btn-lg">Register Interest</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="workshops" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-3">Choose Your Workshop</h2>
+            <p class="text-center text-muted mb-3">Build applications using the complete AI-DLC methodology: Inception, Construction, and Operations phases</p>
+            <div class="alert alert-info text-center mx-auto mb-5" style="max-width: 700px;">
+                <i class="bi bi-diagram-3"></i> These workshops recommend using the open-source <a href="#workflows"><strong>AI-DLC Workflow</strong></a> rules for a guided, adaptive experience. Copy-paste prompts are also available as an alternative within each workshop.
+                <br><small>Each workshop has a predefined use case so your team can jump straight into building — just pick a workshop, start the workflow, and follow the gates.</small>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card workshop-card h-100">
+                        <div class="card-body">
+                            <div class="workshop-icon mb-3">
+                                <i class="bi bi-diagram-3"></i>
+                            </div>
+                            <h3 class="card-title">Workshop 1</h3>
+                            <h5 class="text-muted mb-3">Task Manager Application</h5>
+                            <p class="card-text">Build a task manager with Python Flask APIs and deploy to AWS using CloudFormation</p>
+                            <a href="task-manager.html?workshop=1" class="btn btn-primary w-100">Start Workshop</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card workshop-card h-100">
+                        <div class="card-body">
+                            <div class="workshop-icon mb-3">
+                                <i class="bi bi-briefcase"></i>
+                            </div>
+                            <h3 class="card-title">Workshop 2</h3>
+                            <h5 class="text-muted mb-3">Job Application with CDK</h5>
+                            <p class="card-text">Build a job application website with React and deploy using AWS CDK with S3 and CloudFront</p>
+                            <a href="job-application-cdk.html?workshop=2" class="btn btn-primary w-100">Start Workshop</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card workshop-card h-100">
+                        <div class="card-body">
+                            <div class="workshop-icon mb-3">
+                                <i class="bi bi-cloud-upload"></i>
+                            </div>
+                            <h3 class="card-title">Workshop 3</h3>
+                            <h5 class="text-muted mb-3">S3 File-Sharing System</h5>
+                            <p class="card-text">Build a web-based file sharing system with S3, DynamoDB, API Gateway, Lambda, and React</p>
+                            <a href="s3-file-sharing.html?workshop=3" class="btn btn-primary w-100">Start Workshop</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card workshop-card h-100">
+                        <div class="card-body">
+                            <div class="workshop-icon mb-3">
+                                <i class="bi bi-cart"></i>
+                            </div>
+                            <h3 class="card-title">Workshop 4</h3>
+                            <h5 class="text-muted mb-3">E-Commerce Product Catalog</h5>
+                            <p class="card-text">Build a product catalog with incremental unit-by-unit development, testing, and validation</p>
+                            <a href="ecommerce-catalog.html?workshop=4" class="btn btn-primary w-100">Start Workshop</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card workshop-card h-100" style="border-left: 3px solid var(--aws-orange);">
+                        <div class="card-body">
+                            <div class="workshop-icon mb-3">
+                                <i class="bi bi-arrow-repeat"></i>
+                            </div>
+                            <h3 class="card-title">Workshop 5</h3>
+                            <h5 class="text-muted mb-3">Brownfield E-Commerce</h5>
+                            <p class="card-text">Modernize a sample e-commerce app — AI-DLC Workflow auto-analyzes the codebase, then you pick what to build</p>
+                            <a href="brownfield-ecommerce.html?workshop=5" class="btn btn-primary w-100">Start Workshop</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="workflows" class="py-5 bg-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="mb-4">AI-DLC Adaptive Workflows</h2>
+                    <p class="lead">Open-source workflow scaffolds that bring AI-DLC principles to life</p>
+                    <p>Transform your development process with adaptive workflows that intelligently select stages, modulate depth, and embed human oversight at every critical decision point.</p>
+                    
+                    <h5 class="mt-4 mb-3">Key Features:</h5>
+                    <ul class="feature-list">
+                        <li><i class="bi bi-check-circle-fill text-success"></i> <strong>Adaptive Decisioning:</strong> Workflows conform to your problem's shape</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i> <strong>Transparent Checkpoints:</strong> Human approvals embedded at every decision gate</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i> <strong>End-to-End Traceability:</strong> Complete audit trail of reasoning and decisions</li>
+                    </ul>
+                    
+                    <div class="alert alert-info mt-4">
+                        <h6 class="mb-2"><i class="bi bi-lightbulb-fill"></i> Workspace Detection</h6>
+                        <p class="mb-0 small">AI-DLC workflows automatically analyze your workspace and adapt the workflow. For <strong>greenfield</strong> projects, it proceeds to Requirements Analysis. For <strong>brownfield</strong> projects, it performs Reverse Engineering first. This demonstrates the truly adaptive nature of AI-DLC workflows.</p>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <a href="https://github.com/awslabs/aidlc-workflows" target="_blank" class="btn btn-primary btn-lg me-3">
+                            <i class="bi bi-github"></i> View on GitHub
+                        </a>
+                        <a href="https://github.com/awslabs/aidlc-workflows#readme" target="_blank" class="btn btn-outline-primary btn-lg">
+                            <i class="bi bi-book"></i> Documentation
+                        </a>
+                    </div>
+                    <p class="mt-3"><a href="#workshops"><i class="bi bi-arrow-up"></i> Back to Workshops</a></p>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <div class="workflow-visual p-5">
+                        <i class="bi bi-diagram-3-fill" style="font-size: 10rem; color: var(--aws-orange);"></i>
+                        <p class="mt-3 text-muted">Adaptive AI-DLC Workflow</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 AWS AI-DLC Workshop Series</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
