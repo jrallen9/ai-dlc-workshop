@@ -1,3 +1,5 @@
 # Website Source
 
-This directory is reserved for curated source files if the website is reconstructed from the raw mirror into a cleaner implementation.
+Reserved for future source files if the static website is refactored into a build-based implementation.
+
+The current minimal public site does not require a build step; `website/public/` is the source of truth for hosting.

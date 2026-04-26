@@ -2,7 +2,7 @@ const baseUrl = process.argv[2] || process.env.AIDLC_SITE_URL || 'http://localho
 
 const paths = [
   '/',
-  '/register.html',
+  '/setup-instructions.html',
   '/task-manager.html',
   '/job-application-cdk.html',
   '/s3-file-sharing.html',
@@ -10,7 +10,6 @@ const paths = [
   '/brownfield-ecommerce.html',
   '/assets/css/styles.css',
   '/assets/js/script.js',
-  '/assets/js/register.js',
   '/assets/js/task-manager.js',
   '/assets/js/job-application-cdk.js',
   '/assets/js/s3-file-sharing.js',

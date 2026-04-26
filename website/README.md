@@ -1,7 +1,9 @@
 # Website
 
-This directory contains the locally hostable website and any curated source files used to reconstruct it.
+Public website files.
 
-- `public/` is the document root served by the Java static server.
-- `src/` is reserved for maintainable source files if the mirrored site is refactored.
-- `design/` stores screenshots, extracted tokens, and layout notes.
+- `public/` is the static document root and the only directory required to host the site.
+- `design/` contains optional design notes and extracted tokens.
+- `src/` is reserved for future maintainable source files if the static site is refactored.
+
+For the minimal public repo, `website/public/` is the primary artifact.

@@ -1,5 +1,5 @@
 # Server
 
-This directory contains local hosting implementations.
+Local hosting utilities for the public website.
 
-The planned default is a Java static webserver under `java-static-server/`.
+The Java static server under `java-static-server/` serves `website/public/` for local review from WSL Ubuntu.

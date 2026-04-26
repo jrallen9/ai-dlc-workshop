@@ -4,6 +4,7 @@
     --aws-light: #EAEDED;
     --aws-blue: #146EB4;
     --aws-squid-ink: #16191F;
+    --setup-green: #1D8102;
 }
 
 body {
@@ -20,6 +21,13 @@ body {
     color: white;
     padding: 100px 0;
     margin-bottom: 50px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .workshop-card {
@@ -63,6 +71,20 @@ body {
     background-color: #ec7211;
     border-color: #ec7211;
     color: var(--aws-squid-ink);
+}
+
+.btn-setup {
+    background-color: var(--setup-green);
+    border-color: var(--setup-green);
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.18);
+}
+
+.btn-setup:hover {
+    background-color: #16660A;
+    border-color: #16660A;
+    color: #fff;
 }
 
 .btn-outline-primary {
@@ -208,4 +230,148 @@ body {
     color: var(--aws-orange);
     display: block;
     margin: 10px auto;
+}
+
+.setup-hero {
+    background: linear-gradient(135deg, var(--aws-squid-ink) 0%, var(--aws-dark) 100%);
+    color: white;
+    padding: 64px 0;
+}
+
+.setup-callout {
+    align-items: center;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.24);
+    border-radius: 8px;
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.setup-callout i {
+    color: var(--aws-orange);
+    font-size: 2rem;
+}
+
+.setup-callout span {
+    color: #d5dbdb;
+    display: block;
+    font-size: 0.95rem;
+}
+
+.setup-page {
+    background: #f7f8fa;
+}
+
+.setup-toc {
+    background: #fff;
+    border-left: 4px solid var(--aws-orange);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 1rem;
+    top: 90px;
+}
+
+.setup-toc h2 {
+    color: var(--aws-dark);
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.setup-toc a {
+    color: var(--aws-dark);
+    display: block;
+    font-size: 0.95rem;
+    padding: 0.35rem 0;
+    text-decoration: none;
+}
+
+.setup-toc a:hover {
+    color: var(--aws-blue);
+}
+
+.setup-section {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+}
+
+.setup-section h2 {
+    color: var(--aws-dark);
+    margin-bottom: 1rem;
+}
+
+.setup-card {
+    border: 1px solid #d5dbdb;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.setup-card i {
+    color: var(--aws-blue);
+    font-size: 1.75rem;
+}
+
+.setup-card h3,
+.tutorial-block h3,
+.verify-grid h3 {
+    color: var(--aws-dark);
+    font-size: 1.1rem;
+    margin-top: 0.75rem;
+}
+
+.tutorial-block {
+    border-top: 1px solid #d5dbdb;
+    padding: 1.25rem 0 0;
+    margin-top: 1.25rem;
+}
+
+.tutorial-block ol {
+    padding-left: 1.25rem;
+}
+
+.setup-note {
+    background: #fff8e6;
+    border-left: 4px solid var(--aws-orange);
+    border-radius: 0 4px 4px 0;
+    padding: 0.75rem 1rem;
+}
+
+.setup-page pre {
+    background: #2d2d2d;
+    border-radius: 8px;
+    color: #f8f8f2;
+    margin: 0.75rem 0;
+    overflow-x: auto;
+    padding: 1rem;
+}
+
+.setup-page code {
+    color: inherit;
+}
+
+.setup-page p code,
+.setup-page li code {
+    background: #eef3f8;
+    border-radius: 4px;
+    color: var(--aws-squid-ink);
+    padding: 0.12rem 0.28rem;
+}
+
+.verify-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 991.98px) {
+    .setup-toc {
+        position: static;
+    }
+
+    .verify-grid {
+        grid-template-columns: 1fr;
+    }
 }

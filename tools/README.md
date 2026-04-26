@@ -1,7 +1,7 @@
 # Tools
 
-This directory contains project automation and helper scripts.
+Optional helper scripts for maintaining and verifying the public website.
 
-- `crawl/` will contain source-site crawl scripts.
-- `extraction/` will contain design and workshop extraction helpers.
-- `verification/` contains local site verification helpers.
+- `verification/`: public-site smoke tests.
+- `crawl/`: optional source-site crawl scripts, not required for the public site.
+- `extraction/`: optional reconstruction and workshop extraction helpers.

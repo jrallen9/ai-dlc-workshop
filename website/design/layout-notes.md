@@ -5,7 +5,6 @@
 The reconstructed site is a static Bootstrap 5 website. The public document root is `website/public/`.
 
 - `index.html`: homepage with sticky navigation, hero, workshop cards, AI-DLC workflow overview, and footer.
-- `register.html`: interest-registration form.
 - `task-manager.html`: Workshop 1 page.
 - `job-application-cdk.html`: Workshop 2 page.
 - `s3-file-sharing.html`: Workshop 3 page.

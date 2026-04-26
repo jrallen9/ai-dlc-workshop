@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Instructions - AI-DLC Workshop</title>
+    <meta name="description" content="Setup OpenAI Codex, Claude Code, and local Qwen with llama.cpp for the AI-DLC workshop series.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="bi bi-cpu"></i> AI-DLC Workshop Series</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#workshops">Workshops</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="setup-instructions.html">Setup</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="setup-hero">
+        <div class="container">
+            <a href="index.html" class="btn btn-outline-light mb-4"><i class="bi bi-arrow-left"></i> Back to Workshops</a>
+            <div class="row align-items-center g-4">
+                <div class="col-lg-8">
+                    <h1 class="display-5 fw-bold mb-3">Setup Instructions</h1>
+                    <p class="lead mb-0">Prepare a workshop machine for hosted coding agents or a local llama.cpp model before starting the AI-DLC exercises.</p>
+                </div>
+                <div class="col-lg-4">
+                    <div class="setup-callout">
+                        <i class="bi bi-terminal"></i>
+                        <div>
+                            <strong>Recommended for Windows</strong>
+                            <span>Use WSL2 Ubuntu for the most predictable CLI experience.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="setup-page py-5">
+        <div class="container">
+            <div class="row g-4">
+                <aside class="col-lg-3">
+                    <nav class="setup-toc sticky-lg-top" aria-label="Setup table of contents">
+                        <h2>Contents</h2>
+                        <a href="#before-you-start">Before You Start</a>
+                        <a href="#openai-codex">OpenAI Codex</a>
+                        <a href="#codex-windows">Codex on Windows</a>
+                        <a href="#codex-wsl">Codex on WSL Ubuntu</a>
+                        <a href="#codex-macos">Codex on Mac OS</a>
+                        <a href="#claude-code">Claude Code</a>
+                        <a href="#claude-windows">Claude on Windows</a>
+                        <a href="#claude-wsl">Claude on WSL Ubuntu</a>
+                        <a href="#claude-macos">Claude on Mac OS</a>
+                        <a href="#qwen-llamacpp">Local Qwen with llama.cpp</a>
+                        <a href="#verify-setup">Verify Setup</a>
+                    </nav>
+                </aside>
+
+                <div class="col-lg-9">
+                    <section id="before-you-start" class="setup-section">
+                        <span class="step-badge">Prep</span>
+                        <h2>Before You Start</h2>
+                        <p>Choose one coding assistant path for the workshop. You only need one of Codex, Claude Code, or a local Qwen model unless you want to compare tools.</p>
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="setup-card h-100">
+                                    <i class="bi bi-git"></i>
+                                    <h3>Git</h3>
+                                    <p>Install Git and work inside a version-controlled workshop folder.</p>
+                                    <pre><code>git --version</code></pre>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="setup-card h-100">
+                                    <i class="bi bi-node-plus"></i>
+                                    <h3>Node.js</h3>
+                                    <p>Use Node.js 18 or newer for npm-based CLI installs.</p>
+                                    <pre><code>node --version
+npm --version</code></pre>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="setup-card h-100">
+                                    <i class="bi bi-shield-lock"></i>
+                                    <h3>Accounts</h3>
+                                    <p>Sign in to the provider account you plan to use before the workshop starts.</p>
+                                    <pre><code># Codex: ChatGPT or OpenAI API
+# Claude: Claude.ai or Console</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="openai-codex" class="setup-section">
+                        <span class="step-badge">Option A</span>
+                        <h2>OpenAI Codex</h2>
+                        <p>Codex CLI runs in your terminal. The official release guidance highlights macOS and Linux binaries, so Windows workshop users should use WSL2 Ubuntu unless native Windows support has been confirmed for their environment.</p>
+                        <div class="alert alert-info">Official references: <a href="https://help.openai.com/en/articles/11096431-openai-codex-ci-getting-started" target="_blank">OpenAI Help Center</a> and <a href="https://github.com/openai/codex" target="_blank">OpenAI Codex GitHub</a>.</div>
+
+                        <article id="codex-windows" class="tutorial-block">
+                            <h3><i class="bi bi-windows"></i> Windows</h3>
+                            <p>Use this only if your workshop environment explicitly supports native Windows. For the standard workshop path, use WSL Ubuntu below.</p>
+                            <ol>
+                                <li>Install Node.js 18 or newer from the official Node.js installer.</li>
+                                <li>Open PowerShell in your project folder.</li>
+                                <li>Install and launch Codex.</li>
+                            </ol>
+                            <pre><code>npm install -g @openai/codex
+codex</code></pre>
+                            <p class="setup-note">If native Windows install or shell behavior is inconsistent, move the project into WSL2 Ubuntu and follow the WSL steps.</p>
+                        </article>
+
+                        <article id="codex-wsl" class="tutorial-block">
+                            <h3><i class="bi bi-ubuntu"></i> Windows WSL Ubuntu</h3>
+                            <ol>
+                                <li>Install WSL2 with Ubuntu from PowerShell.</li>
+                                <li>Open Ubuntu and update packages.</li>
+                                <li>Install Node.js 18 or newer, then install Codex.</li>
+                                <li>Run Codex from the root of your workshop project.</li>
+                            </ol>
+                            <pre><code>wsl --install -d Ubuntu</code></pre>
+                            <pre><code>sudo apt update
+sudo apt install -y git curl
+node --version
+npm --version
+npm install -g @openai/codex
+cd ~/workshops/your-project
+codex</code></pre>
+                        </article>
+
+                        <article id="codex-macos" class="tutorial-block">
+                            <h3><i class="bi bi-apple"></i> Mac OS</h3>
+                            <ol>
+                                <li>Install Homebrew or Node.js 18 or newer.</li>
+                                <li>Install Codex with Homebrew or npm.</li>
+                                <li>Run Codex from the workshop project folder and sign in when prompted.</li>
+                            </ol>
+                            <pre><code>brew install --cask codex
+codex</code></pre>
+                            <pre><code># npm alternative
+npm install -g @openai/codex
+codex</code></pre>
+                        </article>
+                    </section>
+
+                    <section id="claude-code" class="setup-section">
+                        <span class="step-badge">Option B</span>
+                        <h2>Claude Code</h2>
+                        <p>Claude Code runs in a terminal and requires an Anthropic-supported account. Anthropic supports macOS, Ubuntu/Debian, and Windows through WSL or Git for Windows.</p>
+                        <div class="alert alert-info">Official references: <a href="https://docs.anthropic.com/en/docs/claude-code/getting-started" target="_blank">Claude Code setup</a> and <a href="https://code.claude.com/docs/en/setup" target="_blank">advanced setup</a>.</div>
+
+                        <article id="claude-windows" class="tutorial-block">
+                            <h3><i class="bi bi-windows"></i> Windows</h3>
+                            <ol>
+                                <li>Open PowerShell.</li>
+                                <li>Run the native installer, then restart the terminal if your PATH changes.</li>
+                                <li>Start Claude Code in your project folder.</li>
+                            </ol>
+                            <pre><code>irm https://claude.ai/install.ps1 | iex
+claude</code></pre>
+                            <p class="setup-note">If your organization blocks PowerShell install scripts, install Node.js 18 or newer and use <code>npm install -g @anthropic-ai/claude-code</code>.</p>
+                        </article>
+
+                        <article id="claude-wsl" class="tutorial-block">
+                            <h3><i class="bi bi-ubuntu"></i> Windows WSL Ubuntu</h3>
+                            <ol>
+                                <li>Open Ubuntu in WSL2.</li>
+                                <li>Install base packages and Node.js 18 or newer if needed.</li>
+                                <li>Use the native installer or npm fallback.</li>
+                            </ol>
+                            <pre><code>sudo apt update
+sudo apt install -y git curl
+curl -fsSL https://claude.ai/install.sh | bash
+claude</code></pre>
+                            <pre><code># npm alternative
+npm install -g @anthropic-ai/claude-code
+claude</code></pre>
+                        </article>
+
+                        <article id="claude-macos" class="tutorial-block">
+                            <h3><i class="bi bi-apple"></i> Mac OS</h3>
+                            <ol>
+                                <li>Install with the native script, Homebrew, or npm.</li>
+                                <li>Open the workshop project folder.</li>
+                                <li>Run Claude Code and complete the sign-in flow.</li>
+                            </ol>
+                            <pre><code>curl -fsSL https://claude.ai/install.sh | bash
+claude</code></pre>
+                            <pre><code># Homebrew alternative
+brew install --cask claude-code
+claude</code></pre>
+                        </article>
+                    </section>
+
+                    <section id="qwen-llamacpp" class="setup-section">
+                        <span class="step-badge">Option C</span>
+                        <h2>Local Qwen3.6-27B with llama.cpp and TurboQuant</h2>
+                        <p>This path runs a local TurboQuant GGUF of <code>Qwen/Qwen3.6-27B</code>. It avoids hosted model calls, but it is the most hardware-sensitive setup in the workshop. Start with <code>TQ4_1S</code> on a 24 GB or larger GPU, or use <code>TQ2_0</code> / <code>TQ1_0</code> on tighter hardware with reduced quality expectations.</p>
+                        <div class="alert alert-info">References: <a href="https://huggingface.co/Qwen/Qwen3.6-27B" target="_blank">official Qwen3.6-27B model card</a>, <a href="https://huggingface.co/mad-lab-ai/Qwen3.6-27B-tq-gguf" target="_blank">TurboQuant GGUF model card</a>, <a href="https://github.com/kmbandy/llama.cpp" target="_blank">TurboQuant llama.cpp fork</a>, and <a href="https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md" target="_blank">upstream llama.cpp build docs</a>.</div>
+                        <div class="alert alert-warning"><i class="bi bi-exclamation-triangle"></i> TurboQuant support is not the default upstream llama.cpp path. Use the TurboQuant fork linked by the model card when running <code>TQ*</code> files.</div>
+
+                        <article class="tutorial-block">
+                            <h3><i class="bi bi-cpu"></i> Build the TurboQuant llama.cpp fork</h3>
+                            <p>Use the fork referenced by the TurboQuant model card for <code>TQ1_0</code>, <code>TQ2_0</code>, <code>TQ3_1S</code>, and <code>TQ4_1S</code> files.</p>
+                            <pre><code>git clone https://github.com/kmbandy/llama.cpp
+cd llama.cpp
+cmake -B build
+cmake --build build --config Release -j 8</code></pre>
+                            <p class="setup-note">For NVIDIA CUDA or AMD ROCm/HIP acceleration, follow the backend-specific CMake flags in the fork or upstream llama.cpp build guide before running the build command.</p>
+                        </article>
+
+                        <article class="tutorial-block">
+                            <h3><i class="bi bi-download"></i> Download a TurboQuant GGUF</h3>
+                            <p>Download one GGUF file from <code>mad-lab-ai/Qwen3.6-27B-tq-gguf</code>. The model card lists these practical choices.</p>
+                            <div class="table-responsive">
+                                <table class="table table-sm align-middle">
+                                    <thead>
+                                        <tr><th>File</th><th>Approx. size</th><th>Use when</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td><code>Qwen3.6-27B-TQ4_1S.gguf</code></td><td>17 GB</td><td>Best workshop default if your GPU has enough memory</td></tr>
+                                        <tr><td><code>Qwen3.6-27B-TQ3_1S.gguf</code></td><td>13.5 GB</td><td>Balanced fallback for smaller GPUs</td></tr>
+                                        <tr><td><code>Qwen3.6-27B-TQ2_0.gguf</code></td><td>7 GB</td><td>Low-memory experimentation</td></tr>
+                                        <tr><td><code>Qwen3.6-27B-TQ1_0.gguf</code></td><td>5.7 GB</td><td>Last-resort memory fit, lowest quality</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <pre><code>mkdir -p ~/models/qwen3.6-27b-tq
+cd ~/models/qwen3.6-27b-tq
+wget https://huggingface.co/mad-lab-ai/Qwen3.6-27B-tq-gguf/resolve/main/Qwen3.6-27B-TQ4_1S.gguf</code></pre>
+                        </article>
+
+                        <article class="tutorial-block">
+                            <h3><i class="bi bi-hdd-network"></i> Run as a local API server</h3>
+                            <p>Server mode gives coding tools an OpenAI-compatible local endpoint. Start with a 32K context while validating hardware; increase only after confirming memory headroom.</p>
+                            <pre><code>cd ~/llama.cpp
+./build/bin/llama-server \
+  --model ~/models/qwen3.6-27b-tq/Qwen3.6-27B-TQ4_1S.gguf \
+  -ngl 999 \
+  --ctx-size 32768 \
+  --cache-type-k q8_0 \
+  --cache-type-v q8_0 \
+  --flash-attn \
+  --no-mmap \
+  --host 127.0.0.1 \
+  --port 8081</code></pre>
+                            <p class="setup-note">If the server fails with an out-of-memory error, reduce <code>--ctx-size</code>, switch to <code>TQ3_1S</code> or <code>TQ2_0</code>, or lower GPU offload by reducing <code>-ngl</code>.</p>
+                        </article>
+
+                        <article class="tutorial-block">
+                            <h3><i class="bi bi-terminal"></i> Quick CLI test</h3>
+                            <p>Use a short prompt to confirm the quant loads before connecting a coding assistant.</p>
+                            <pre><code>./build/bin/llama-cli \
+  --model ~/models/qwen3.6-27b-tq/Qwen3.6-27B-TQ4_1S.gguf \
+  -ngl 999 \
+  --ctx-size 8192 \
+  --cache-type-k q8_0 \
+  --cache-type-v q8_0 \
+  --flash-attn \
+  --no-mmap \
+  -p "Create a three-step plan for a task manager app."</code></pre>
+                        </article>
+                    </section>
+
+                    <section id="verify-setup" class="setup-section">
+                        <span class="step-badge">Check</span>
+                        <h2>Verify Setup</h2>
+                        <p>Before the workshop, open a clean terminal in a test project and verify that your chosen tool starts successfully.</p>
+                        <div class="verify-grid">
+                            <div>
+                                <h3>Codex</h3>
+                                <pre><code>codex --version
+codex</code></pre>
+                            </div>
+                            <div>
+                                <h3>Claude Code</h3>
+                                <pre><code>claude --version
+claude doctor</code></pre>
+                            </div>
+                            <div>
+                                <h3>llama.cpp</h3>
+                                <pre><code>./build/bin/llama-cli --help</code></pre>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 AWS AI-DLC Workshop Series</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

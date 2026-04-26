@@ -1,6 +1,6 @@
 # Verification Tools
 
-Helpers for checking the locally served website.
+Helpers for checking the minimal public website after it is served locally.
 
 Run the Java server first:
 

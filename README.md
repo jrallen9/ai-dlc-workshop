@@ -1,59 +1,64 @@
-# AI-DLC Workshop
+# AI-DLC Workshop Website
 
-This repository contains the local, GitHub-ready version of the AI-DLC workshop website project.
+Minimal public-facing static website for the AI-DLC workshop series.
 
-The project will crawl the source website, extract its design and layout, organize workshops 1 through 5 into maintainable subprojects, and serve the local website from WSL Ubuntu with a Java static webserver.
-
-## Source Site
-
-```text
-https://d3h5h54wint40o.cloudfront.net/index.html
-```
-
-## Repository Layout
-
-```text
-ai-dlc-docs/
-  plans/       Project plans and implementation tracking
-  research/    Crawl, design, and workshop extraction notes
-  runbooks/    Repeatable local workflows
-
-source-mirror/
-  raw/         Untouched downloaded mirror of the source site
-  manifests/   Crawl, asset, and link inventories
-
-website/
-  public/      Locally hostable static website
-  src/         Curated source files if the site is reconstructed
-  design/      Screenshots, tokens, and layout notes
-
-workshops/
-  workshop-01/ Workshop 1 materials
-  workshop-02/ Workshop 2 materials
-  workshop-03/ Workshop 3 materials
-  workshop-04/ Workshop 4 materials
-  workshop-05/ Workshop 5 materials
-
-server/
-  java-static-server/ Java server for local WSL Ubuntu hosting
-
-tools/
-  crawl/       Site crawl scripts
-  extraction/  Design and content extraction helpers
-```
+The site is served from `website/public/` and can be hosted by any static web server. This repo includes a small Java 17 server for local WSL Ubuntu hosting.
 
 ## Quickstart
 
-Phase 1 repository setup is documented in:
+Build the Java server:
 
-```text
-ai-dlc-docs/plans/ai-dlc_workshop_website_plan.md
+```bash
+cd server/java-static-server
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+mvn package
 ```
 
-Future phases will add:
+Run the site:
 
-- source site crawl scripts
-- local website files
-- workshop extraction outputs
-- Java webserver implementation
-- WSL Ubuntu run instructions
+```bash
+java -jar target/ai-dlc-static-server-1.0.0.jar --root ../../website/public --host 0.0.0.0 --port 8080
+```
+
+Open from Windows Chrome:
+
+```text
+http://localhost:8080/
+```
+
+If localhost forwarding fails, use the WSL IP fallback, for example:
+
+```text
+http://<wsl-ip>:8080/
+```
+
+## Minimal Repo Layout
+
+```text
+website/public/              Static website document root
+server/java-static-server/   Java 17 static web server
+workshops/                   Extracted workshop reference material
+tools/verification/          Local smoke-test helper
+```
+
+## Public Pages
+
+- `index.html`
+- `setup-instructions.html`
+- `task-manager.html`
+- `job-application-cdk.html`
+- `s3-file-sharing.html`
+- `ecommerce-catalog.html`
+- `brownfield-ecommerce.html`
+
+## Verify
+
+With the server running:
+
+```bash
+node tools/verification/verify-site.mjs http://localhost:8080
+```
+
+## Repository Scope
+
+For a minimal public website repository, commit the static website, workshop docs, Java server, and verification helper. Keep crawl mirrors, scratch files, build output, and internal planning notes out of the public repo unless they are intentionally needed for provenance.

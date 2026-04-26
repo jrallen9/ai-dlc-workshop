@@ -1,8 +1,10 @@
 # Public Website
 
-This directory is the intended local document root for the Java static webserver.
+Static document root for the public AI-DLC workshop website.
 
 The local homepage is `index.html`.
+
+Setup guidance is available at `setup-instructions.html`.
 
 Workshop pages use normalized static filenames:
 
@@ -12,8 +14,9 @@ Workshop pages use normalized static filenames:
 - `ecommerce-catalog.html`
 - `brownfield-ecommerce.html`
 
-Regenerate this directory from the raw crawl with:
+Shared assets live under:
 
-```bash
-node tools/extraction/reconstruct-website.mjs
-```
+- `assets/css/`
+- `assets/js/`
+
+Serve this directory with the Java static server or any standard static host.
