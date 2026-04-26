@@ -32,3 +32,7 @@ build/
 .env
 .env.*
 !.env.example
+/ai-dlc-docs/
+/source-mirror/
+/tools/
+/workshops/
