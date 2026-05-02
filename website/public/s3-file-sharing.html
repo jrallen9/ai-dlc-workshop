@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workshop 3: S3 File-Sharing System - AI-DLC Workshop</title>
-    <meta name="description" content="Build a serverless file-sharing system using AWS S3, DynamoDB, API Gateway, Lambda, and React. Learn AI-DLC methodology.">
+    <title>Workshop 3: Portable File-Sharing System - AI-DLC Workshop</title>
+    <meta name="description" content="Build a portable file-sharing system using MinIO, ScyllaDB Alternator, a local API service, function-style handlers, Docker Compose, and React. Learn AI-DLC methodology.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -40,20 +40,24 @@
     <section class="workshop-detail">
         <div class="container">
             <a href="index.html" class="btn btn-outline-primary back-btn"><i class="bi bi-arrow-left"></i> Back to Workshops</a>
-            <h2 class="mb-4"><span id="workshop-number"></span>S3 File-Sharing System</h2>
-            <p class="lead">Build a complete web-based file sharing system backed by S3</p>
+            <h2 class="mb-4"><span id="workshop-number"></span>Portable File-Sharing System</h2>
+            <p class="lead">Build a complete web-based file sharing system that runs locally with open-source infrastructure</p>
             <div class="vision-section">
                 <div class="alert alert-info"><i class="bi bi-info-circle"></i> This workshop references a <strong>vision.md</strong> file. Download it first before starting.</div>
                 <div class="mb-4"><button class="btn btn-success" onclick="downloadVision()"><i class="bi bi-download"></i> Download vision.md</button></div>
                 <h3>Workshop Overview</h3>
-                <p><strong>Duration:</strong> ~4 hours | <strong>Project:</strong> S3 File-Sharing System</p>
-                <p>Build a web-based file sharing system with S3 storage, DynamoDB for data management, API Gateway + Lambda for backend, and React for the frontend. Includes multiple user roles (Admin, Uploader, Reader, Viewer) with role-based permissions.</p>
+                <p><strong>Duration:</strong> ~4 hours | <strong>Project:</strong> Portable File-Sharing System</p>
+                <p>Build a web-based file sharing system with MinIO for S3-compatible object storage, ScyllaDB Alternator for metadata, a local API service for gateway-style routing, function-style backend handlers, and React for the frontend. Includes multiple user roles (Admin, Uploader, Reader, Viewer) with role-based permissions.</p>
+                <div class="note-box">
+                    <strong>Portable stack:</strong> This workshop teaches the same cloud-native patterns without requiring AWS services. MinIO replaces S3, ScyllaDB Alternator replaces DynamoDB, local API routes replace API Gateway, function-style handlers replace Lambda functions, and Docker Compose replaces CloudFormation/SAM deployment.
+                </div>
                 <h4>Prerequisites</h4>
                 <ul>
                     <li>Basic React/JavaScript and Python knowledge</li>
                     <li>Access to an AI assistant (Kiro, Claude, Cursor, etc.)</li>
-                    <li>AWS account with CLI configured</li>
-                    <li>Node.js, npm, Python, and AWS SAM CLI installed</li>
+                    <li>Docker Desktop or Docker Engine with Docker Compose</li>
+                    <li>Node.js, npm, and Python installed</li>
+                    <li>Optional: MinIO Client (<code>mc</code>) for inspecting local buckets</li>
                     <li>Code editor</li>
                 </ul>
             </div>
@@ -65,7 +69,7 @@
             <div class="tab-content tab-content-bordered">
 <!-- ==================== AI-DLC WORKFLOW TAB ==================== -->
 <div class="tab-pane fade show active" id="tab-workflow" role="tabpanel">
-    <div class="alert alert-info"><i class="bi bi-info-circle"></i> <strong>Prerequisite:</strong> AI-DLC Workflow rules installed in your coding assistant. <a href="https://github.com/awslabs/aidlc-workflows#quick-start" target="_blank">Setup instructions →</a></div>
+    <div class="alert alert-info"><i class="bi bi-info-circle"></i> <strong>Prerequisite:</strong> AI-DLC Workflow rules installed in your coding assistant. <a href="setup-instructions.html#workshop-3-setup">Workshop 3 Setup Instructions →</a></div>
     <div class="alert alert-warning"><i class="bi bi-exclamation-triangle"></i> AI-DLC Workflow is adaptive. Based on how you answer questions, the complexity of your request, and the AI's assessment, some stages may be skipped, combined, or run at different levels of detail. The activities below represent the typical flow for this use case, but your experience may differ. The workflow will always tell you what it's doing and why — follow its lead and approve or request changes at each gate.</div>
 
     <!-- Activity 1 -->
@@ -114,9 +118,9 @@
         <div class="prompt-title"><span class="step-badge">Inception</span> Activity 4: Workflow Planning + Units (~10 minutes)</div>
         <div class="vision-section" style="border-radius:0 0 8px 8px;margin-top:0">
             <p>The AI determines which Construction stages to run and decomposes the system into multiple units that can be built independently. Each unit contains highly cohesive user stories. The units are loosely coupled and ordered so everything is built properly.</p>
-            <div class="think-box">💡 <strong>Think about your file-sharing system:</strong> The ordering of units matters — backend units need to be built before frontend. Make sure Infrastructure Design is included since you need deployment.</div>
+            <div class="think-box">💡 <strong>Think about your file-sharing system:</strong> The ordering of units matters — backend units need to be built before frontend. Make sure Infrastructure Design is included since you need a local Docker Compose runtime.</div>
             <p>Make sure Infrastructure Design is included. If it's marked SKIP:</p>
-            <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('wf-2',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="wf-2">Add Infrastructure Design to the plan. We need deployment to us-west-2.</pre></div>
+            <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('wf-2',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="wf-2">Add Infrastructure Design to the plan. We need a local Docker Compose deployment using MinIO, ScyllaDB Alternator, a local API service, function-style handlers, and the React frontend.</pre></div>
             <div class="gate-box mt-2">📋 The AI will present an approval gate — review the output and approve to continue, or request changes if needed.</div>
             <div class="context-reset">💡 <strong>Context reset (optional):</strong> Starting a fresh chat before Construction can help if the Inception phase was long. Skip if things are going smoothly.</div>
         </div>
@@ -143,15 +147,15 @@
             <div class="think-box">💡 <strong>Think about your file-sharing system:</strong> The plan should cover both backend and frontend. Key things to watch for:
                 <ul class="mb-0 mt-1">
                     <li>Bootstrap CDN styling with creative color theme (not default blue), responsive layout, visual hierarchy, hover effects</li>
-                    <li>No mock data hardcoded — use real DynamoDB, real S3. Final app should not have any mock data hardcoded anywhere</li>
-                    <li>SAM to test Lambda functions locally, SAM Local for faster iteration</li>
-                    <li>Lambda layers verified before deployment with a verification script, layer structure documented in code</li>
-                    <li>Follow AWS Lambda Layer Best Practices from start</li>
-                    <li>Check Lambda Context Attributes and reference AWS documentation for correct attribute names</li>
-                    <li>Read CloudWatch Logs immediately after first deploy</li>
+                    <li>No mock data hardcoded — use real MinIO object storage and real ScyllaDB Alternator metadata. Final app should not have any mock data hardcoded anywhere</li>
+                    <li>S3-compatible SDK configuration using a local endpoint URL, access key, secret key, and path-style addressing</li>
+                    <li>Function-style backend handlers organized so they could later be moved to serverless functions, but runnable locally as normal application code</li>
+                    <li>Docker Compose services, named volumes, health checks, and initialization scripts for buckets and tables</li>
+                    <li>Integration tests that write objects to MinIO and metadata to ScyllaDB Alternator</li>
+                    <li>Container logs checked immediately after first local deploy</li>
                     <li>Only <code>npm install</code> and <code>npm run build</code> — no dev server, deploy separately</li>
-                    <li>TODO file for post-deployment tasks tracking failed actions</li>
-                    <li>Backend requests tested with real HTTPS requests</li>
+                    <li>TODO file for post-deployment tasks tracking failed local setup or validation actions</li>
+                    <li>Backend requests tested with real local HTTP requests</li>
                     <li>Check off corresponding tasks in spec task docs as they complete</li>
                 </ul>
             </div>
@@ -166,28 +170,27 @@
 
     <!-- Activity 7 -->
     <div class="mb-4">
-        <div class="prompt-title"><span class="step-badge">Construction</span> Activity 7: Infrastructure Design + Deployment (~30 minutes)</div>
+        <div class="prompt-title"><span class="step-badge">Construction</span> Activity 7: Local Infrastructure + Deployment (~30 minutes)</div>
         <div class="vision-section" style="border-radius:0 0 8px 8px;margin-top:0">
-            <p>The AI designs the AWS deployment architecture and generates CloudFormation YAML. This covers:</p>
+            <p>The AI designs the portable local deployment architecture and generates Docker Compose configuration. This covers:</p>
             <ul>
-                <li>A private S3 bucket with a random prefix (e.g. <code>&lt;prefix&gt;-react-app-bucket-s3-file-share-workshop</code>)</li>
-                <li>A CloudFront distribution with Origin Access Control and bucket policy</li>
-                <li>Valid IAM policy documents including <code>Version: '2012-10-17'</code> (quoted) with proper resource ARNs</li>
-                <li>CloudFormation outputs: Buckets, Distribution ID, and CloudFront URL</li>
-                <li>App accessible at the default CloudFront domain at root path</li>
+                <li>A MinIO service with persistent object storage and an initialized private bucket such as <code>file-share-workshop</code></li>
+                <li>A ScyllaDB Alternator service with persistent metadata storage and table initialization scripts</li>
+                <li>A local API service that exposes gateway-style routes for auth, upload, download, sharing, and admin workflows</li>
+                <li>Function-style backend handler modules for file operations, permission checks, and metadata updates</li>
+                <li>A React frontend served from a static container or by the local API service</li>
+                <li>Docker Compose networking, named volumes, health checks, and environment variables</li>
             </ul>
-            <p>The AI will also handle deployment using AWS CLI:</p>
+            <p>The AI will also handle local deployment using Docker Compose:</p>
             <ul>
-                <li>Validate using validate-template command and edit if needed</li>
-                <li>Deploy the stack (the AI will determine the stack name)</li>
-                <li>Monitor for successful completion and report stack deployment status</li>
-                <li>Look up the distribution ID and URL from stack outputs</li>
-                <li>Update the React app with the CloudFront URL (React Router basename, package.json, .env)</li>
-                <li>Build the React application and copy web assets to S3</li>
-                <li>Deploy server-side components (Lambda, API Gateway, DynamoDB)</li>
-                <li>curl the full URL to verify access works</li>
+                <li>Create <code>docker-compose.yml</code>, <code>.env.example</code>, and service-specific Dockerfiles if needed</li>
+                <li>Initialize the MinIO bucket and ScyllaDB Alternator tables with repeatable scripts</li>
+                <li>Build the React application and serve it locally</li>
+                <li>Run <code>docker compose up --build</code> and monitor container status</li>
+                <li>Verify local URLs for the frontend, API, MinIO console, and ScyllaDB Alternator endpoint</li>
+                <li>Use <code>curl</code> or an API test script to verify upload, list, share, and download flows</li>
             </ul>
-            <div class="note-box">This workstation already has appropriate permissions for the AWS CLI using an IAM Role with an EC2 instance profile.</div>
+            <div class="note-box">Expected local URLs: frontend at <code>http://localhost:3000</code>, API at <code>http://localhost:8000</code>, MinIO console at <code>http://localhost:9001</code>, and ScyllaDB Alternator at <code>http://localhost:8001</code>.</div>
             <div class="gate-box mt-2">📋 The AI will present approval gates at each step — review and approve to continue, or request changes if needed.</div>
         </div>
     </div>
@@ -196,8 +199,8 @@
     <div class="mb-4">
         <div class="prompt-title"><span class="step-badge">Construction</span> Build and Test (~10 minutes)</div>
         <div class="vision-section" style="border-radius:0 0 8px 8px;margin-top:0">
-            <p>AI-DLC Workflow generates build and test instructions. Check the TODO file for any post-deployment tasks that need to be executed.</p>
-            <div class="note-box">The exact directory names, file names, stack outputs, and URLs will vary. Check the build instructions and CloudFormation stack outputs for the exact values.</div>
+            <p>AI-DLC Workflow generates build and test instructions. Check the TODO file for any local setup or validation tasks that need to be executed.</p>
+            <div class="note-box">The exact directory names, file names, container names, and URLs will vary. Check the build instructions and Docker Compose output for the exact values.</div>
         </div>
     </div>
 
@@ -208,13 +211,13 @@
         <div class="prompt-title"><span class="step-badge">Operations</span> Activity 8: Operations Discussion (~10 minutes)</div>
         <div class="vision-section" style="border-radius:0 0 8px 8px;margin-top:0">
             <p>AI-DLC Workflow's Operations phase is a placeholder for future expansion. This is a group discussion about what comes after building.</p>
-            <div class="think-box">💡 <strong>Think about your file-sharing system:</strong> How would you monitor storage usage and costs? How would you handle cold starts for the API? What about file versioning and lifecycle policies? How would you add audit logging for file access?</div>
+            <div class="think-box">💡 <strong>Think about your file-sharing system:</strong> How would you monitor local storage usage, container health, API latency, and access logs? What backup and restore strategy should protect MinIO objects and ScyllaDB Alternator metadata? How would you add file versioning, cleanup jobs, and audit logging for file access?</div>
             <p><strong>Discuss as a group:</strong></p>
             <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('wf-3',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="wf-3">Now that we've built and deployed our file sharing system, discuss how AI would help with:
-1. Monitoring storage, API performance, and usage
-2. Managing file lifecycle policies and versioning
+1. Monitoring local storage, container health, API performance, and usage
+2. Managing object cleanup jobs, file versioning, and backup/restore
 3. Adding audit logging for file access and role changes
-4. Scaling the system as users and files grow
+4. Migrating the same architecture from the local stack to managed cloud services later
 
 Please explain how this would work for our specific application.</pre></div>
         </div>
@@ -268,41 +271,47 @@ Refer to all the specs/. Design the component model to implement all the user st
         <div class="prompt-title"><span class="step-badge">Construction</span> AI-DLC 4: Build the code for the vision</div>
         <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('p-3',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="p-3">Your Role: You are an experienced software engineer. Read the specs documents and proceed with building the application, task by task. Before you start building please do the planning and write your steps in the markdown file .aidlc/app_plan.md file with checkboxes against each step in the plan. List your Deliverables in the plan file. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval.
 
-After my approval, execute the same plan and all the specs in specs/ folder, one step at a time. Remember to check off each task as it gets completed, check off the corresponding task in the spec task docs, and if the task involves a back-end, server-side, request make sure to test it with a real HTTPS request. NEVER mock up any data except when you need a placeholder. The final app should not have any mock data hardcoded anywhere.
+After my approval, execute the same plan and all the specs in specs/ folder, one step at a time. Remember to check off each task as it gets completed, check off the corresponding task in the spec task docs, and if the task involves a back-end, server-side request make sure to test it with a real local HTTP request. NEVER mock up any data except when you need a placeholder. The final app should not have any mock data hardcoded anywhere.
 Task: You MUST refer to component design in the .aidlc/component_model.md file and the .aidlc/user_stories.md file.
 -	Use modern design styling for the UX with Bootstrap CDN: icons, color theme, responsive layout, intuitive visual hierarchy, CSS for hover effects
 -	Choose a creative professional color theme avoiding default blue (e.g. green, blue, teal, gray, purple, orange, teal etc.) 
 -	Do not run the npm dev server, only use npm-install and npm-run-build. We will deploy the app separately
--	Create a TODO file for post-deployment tasks where you keep track of actions that failed and you need to execute after a full deploy
--	Use SAM to test lambda functions locally
--	Verify Lambda layers structure before first deployment, create a layer verification script, and document the layer structure in code
--	Follow AWS Lambda Layer Best Practices from Start
--	Check Lambda Context Attributes and reference AWS documentation via the AWS Docs MCP server for the correct attribute names
--	Use SAM Local for Faster Iteration
--	Read CloudWatch Logs Immediately After First Deploy</pre></div>
+-	Create a TODO file for post-deployment tasks where you keep track of local setup or validation actions that failed and need to be re-executed after a full deploy
+-	Use real MinIO object storage through an S3-compatible SDK endpoint; do not fake file storage
+-	Use real ScyllaDB Alternator tables for metadata and permissions; do not fake metadata persistence
+-	Configure local endpoints, access keys, table names, bucket names, and ports through environment variables and .env.example
+-	Organize backend logic as function-style handlers that can run locally through the API service and could later be adapted to serverless functions
+-	Create integration tests that write objects to MinIO and metadata to ScyllaDB Alternator
+-	Read container logs immediately after first local deploy</pre></div>
     </div>
 
     <div class="mb-4">
-        <div class="prompt-title"><span class="step-badge">Operations</span> AI-DLC 5: Deploy the code</div>
-        <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('p-4',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="p-4">Your Role: You are an experienced Cloud Architect. Before you start the task as mentioned below, please do the planning and write your steps in the markdown file .aidlc/deployment_plan.md file with checkboxes against each step in the plan. List your Deliverables in the plan file. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.  
-Task: Use the following steps to deploy the application code generated in the backend and react-app folders to AWS us-west-2 Region. This workstation already has appropriate permissions for the AWS CLI using an IAM Role with an EC2 instance profile.
-Step 1: Create and Deploy IaC for the React app 
-Create a CloudFormation YAML file that defines:
-  - A private S3 bucket with a random prefix. E.g. <prefix>-react-app-bucket-s3-file-share-workshop
-  - A CloudFront distribution with a path pattern pointing to the S3 origin with Origin Access Control and Bucket policy
-- CloudFormation Outputs: Buckets, Distribution ID, and CloudFront URL 
-- Ensure all IAM policy documents are valid, including Version: '2012-10-17' (quoted) and use proper resource ARNs (e.g., arn:aws:s3:::bucket/* for object access).
-The app should be accessible at the default CloudFront distribution domain name at the root path. E.g. https://<distribution-prefix>.cloudfront.net/
-Step 2: USE AWS CLI to deploy the CloudFormation template 
-- Validate using validate-template command and edit if needed
-- Deploy using Stack names: s3-file-share-workshop
-- Monitor for successful completion and keep me updated with the Stack deployment status 
-- Once complete, lookup the distribution ID and URL from the stack outputs.
-Step 3: Deploy the React App and Server Side components
-- Update the React application with any prefix and CloudFront URL. E.g. the React Router basename, package.json, .env file, and any other files you deem relevant
+        <div class="prompt-title"><span class="step-badge">Operations</span> AI-DLC 5: Deploy the code locally</div>
+        <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('p-4',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="p-4">Your Role: You are an experienced platform engineer. Before you start the task as mentioned below, please do the planning and write your steps in the markdown file .aidlc/deployment_plan.md file with checkboxes against each step in the plan. List your Deliverables in the plan file. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
+Task: Use the following steps to deploy the application code generated in the backend and react-app folders as a portable local developer stack. Do not require AWS services, AWS credentials, AWS CLI, SAM, CloudFormation, API Gateway, Lambda, or CloudFront.
+Step 1: Create local infrastructure as code
+Create a docker-compose.yml file that defines:
+  - A MinIO service for S3-compatible object storage, with a persistent named volume and console exposed on localhost:9001
+  - A ScyllaDB Alternator service for metadata and permissions, with a persistent named volume and endpoint exposed on localhost:8001
+  - A backend API service exposed on localhost:8000 that provides gateway-style routes for auth, users, uploads, downloads, sharing, and admin workflows
+  - A frontend service exposed on localhost:3000 that serves the built React application
+  - Health checks, service dependencies, local network configuration, and named volumes
+Create a .env.example file with all local endpoint URLs, table names, bucket names, access keys, and ports.
+Step 2: Create initialization scripts
+- Create repeatable scripts to initialize the MinIO bucket, access policy needed by the app, and ScyllaDB Alternator tables
+- Make initialization idempotent so rerunning it does not corrupt existing local data
+- Document how to reset local volumes when a clean environment is needed
+Step 3: Build and run the local stack
 - Build the React application
-- Copy the web assets to the S3 origin
-- curl the full URL to verify that the access works</pre></div>
+- Run docker compose up --build
+- Monitor container status with docker compose ps
+- Read container logs for the API, MinIO, ScyllaDB Alternator, and frontend services
+Step 4: Verify the deployed application
+- curl the backend health endpoint at http://localhost:8000
+- Verify the frontend loads at http://localhost:3000
+- Verify the MinIO console is reachable at http://localhost:9001
+- Verify ScyllaDB Alternator is reachable at http://localhost:8001
+- Run an integration test or script that uploads a real file to MinIO, writes metadata to ScyllaDB Alternator, lists the file, creates a share, and downloads the file</pre></div>
     </div>
 </div>
             </div><!-- /tab-content-bordered -->

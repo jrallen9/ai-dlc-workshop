@@ -1,28 +1,37 @@
-const visionContent = `# S3 File-Sharing System
+const visionContent = `# Portable File-Sharing System
 
 ## Vision
 
-A web based file sharing system backed by S3.
+A web based file sharing system backed by open-source, locally hostable infrastructure.
 
 ## Problem
 
-File sharing using S3 is a difficult process because it requires AWS account access which can be hard to manage when working with 3rd parties.
+File sharing systems often depend on managed cloud services, accounts, credentials, and deployment permissions that make workshops difficult to run consistently. Developers need a portable version that teaches the same architecture patterns while running locally for education, experimentation, and self-hosting.
 
 ## Solution
 
-A web-based file-sharing system with S3 as the file storage, DynamoDB for session management, user management, and folder structure.
+A web-based file-sharing system with MinIO as S3-compatible object storage, ScyllaDB Alternator for session management, user management, and folder metadata, a local API service for gateway-style routing, function-style backend handlers, Docker Compose for local infrastructure, and React for the frontend.
 
 ## Technical Architecture
 
-- Amazon DynamoDB for the database
--- make sure to remember that the Decimal type returned from DynamoDB isn't JSON serializable
-- Amazon S3 for file storage
-- Amazon API Gateway and Python Lambda functions for back-end functionality
-- React JS based static site hosted in S3 for the front-end
+- ScyllaDB Alternator for metadata, user, session, folder, and sharing data
+- MinIO for S3-compatible file storage
+- A local Python API service such as FastAPI for gateway-style HTTP routes
+- Function-style Python handler modules for upload, download, sharing, folder, user, and permission workflows
+- React JS based static site for the frontend
+- Docker Compose for local runtime, networking, volumes, health checks, and service initialization
+
+### Cloud Service Mapping
+
+- S3-compatible object storage: MinIO
+- DynamoDB-compatible metadata store: ScyllaDB Alternator
+- API Gateway-style routing: local FastAPI routes
+- Lambda-style backend logic: local function-style handler modules
+- CloudFormation/SAM-style deployment: Docker Compose and initialization scripts
 
 ### State Management
 
-Use DynamoDB for state and session management
+Use ScyllaDB Alternator for state, session, user, permission, folder, and sharing metadata. Do not use mock metadata persistence.
 
 ## Users & Roles
 
@@ -36,18 +45,23 @@ Use DynamoDB for state and session management
 ## Usability requirements
 
 - Need the ability for everyone browsing files to be able to search by name and sort the view by alphabetical order for the object names, date uploaded, and size of the object.
-- Keep file sizes to a maximum of 1GB and allow upload and download through S3 pre-signed URLs
-- All server side functionality except the upload through pre-signed URLs should be done through API Gateway and Lambda functions written in Python
+- Keep file sizes to a maximum of 1GB and allow upload and download through MinIO S3-compatible pre-signed URLs
+- All server side functionality except direct object transfer through pre-signed URLs should be done through the local API service and Python function-style handlers
+- The frontend, backend API, MinIO, and ScyllaDB Alternator services must run from Docker Compose
 
 ## Backend requirements
 
-- Every lambda function linked to an API Gateway method should be tested before it's considered complete. The test should be an HTTPS call to that method and confirmation of the correct response
-- Consolidate all CRUD operations into one Lambda function when applicable, not one CRUD operation per Lambda file
-- For Python development and AWS SAM, use the same python version that's installed locally, DO NOT use containers
+- Every API route and function-style handler should be tested before it's considered complete. The test should be a real local HTTP call and confirmation of the correct response
+- Consolidate related CRUD operations into cohesive handler modules when applicable, not one file per CRUD operation
+- Use real MinIO object writes and real ScyllaDB Alternator metadata writes in integration tests
+- Configure all local endpoints, credentials, bucket names, table names, and ports through environment variables and .env.example
+- Provide repeatable initialization scripts for the MinIO bucket and ScyllaDB Alternator tables
+- Provide Docker Compose health checks and document how to reset local named volumes
 
 ## Out of Scope
 
-- AWS Cognito or other vendor user management like Okta
+- AWS, cloud accounts, cloud credentials, CloudFormation, SAM, API Gateway, Lambda, CloudFront, or managed DynamoDB
+- Vendor user management like Okta
 
 ## Success Criteria
 

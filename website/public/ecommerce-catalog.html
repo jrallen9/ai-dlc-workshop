@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workshop 4: E-Commerce Product Catalog - AI-DLC Workshop</title>
-    <meta name="description" content="Build a product catalog system with incremental unit-by-unit development using AI-DLC methodology.">
+    <meta name="description" content="Build a local-first product catalog system with React, FastAPI, SQLite, and incremental unit-by-unit development using AI-DLC methodology.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -41,16 +41,20 @@
         <div class="container">
             <a href="index.html" class="btn btn-outline-primary back-btn"><i class="bi bi-arrow-left"></i> Back to Workshops</a>
             <h2 class="mb-4"><span id="workshop-number"></span>E-Commerce Product Catalog</h2>
-            <p class="lead">Duration: 2-3 hours | Build a product catalog system using AI-DLC methodology</p>
+            <p class="lead">Duration: 2-3 hours | Build a local-first full-stack product catalog using AI-DLC methodology</p>
             <div class="vision-section">
                 <div class="alert alert-info"><i class="bi bi-info-circle"></i> This workshop demonstrates incremental unit-by-unit development. Build, test, and validate each unit before moving forward.</div>
                 <h3>Workshop Overview</h3>
-                <p>Apply AI-DLC methodology to build an e-commerce product catalog. Customers can browse products, search, view details, and add items to cart. Admins can manage products and inventory.</p>
+                <p><strong>Stack:</strong> React / Vite / FastAPI / SQLite / Docker Compose</p>
+                <p>Apply AI-DLC methodology to build a local-first e-commerce product catalog. Customers can browse products, search, view details, and add items to a SQLite-backed cart. Admins can manage products and inventory without login. Product images use static placeholder image URLs.</p>
                 <h4 class="mt-4">Prerequisites</h4>
                 <ul>
                     <li>Basic programming knowledge</li>
-                    <li>AWS account (free tier sufficient)</li>
                     <li>Access to AI assistant (Kiro, Claude, Cursor, etc.)</li>
+                    <li>Node.js LTS and npm</li>
+                    <li>Python 3.11+, <code>venv</code>, and <code>pip</code></li>
+                    <li>Browser for local frontend and API docs validation</li>
+                    <li>Docker Compose for the Operations packaging step</li>
                     <li>Code editor</li>
                 </ul>
             </div>
@@ -62,7 +66,7 @@
             <div class="tab-content tab-content-bordered">
 <!-- ==================== AI-DLC WORKFLOW TAB ==================== -->
 <div class="tab-pane fade show active" id="tab-workflow" role="tabpanel">
-    <div class="alert alert-info"><i class="bi bi-info-circle"></i> <strong>Prerequisite:</strong> AI-DLC Workflow rules installed in your coding assistant. <a href="https://github.com/awslabs/aidlc-workflows#quick-start" target="_blank">Setup instructions →</a></div>
+    <div class="alert alert-info"><i class="bi bi-info-circle"></i> <strong>Prerequisite:</strong> AI-DLC Workflow rules installed in your coding assistant. <a href="setup-instructions.html#workshop-4-setup">Workshop 4 Setup Instructions →</a></div>
     <div class="alert alert-warning"><i class="bi bi-exclamation-triangle"></i> AI-DLC Workflow is adaptive. Based on how you answer questions, the complexity of your request, and the AI's assessment, some stages may be skipped, combined, or run at different levels of detail. The workflow tells you what it's doing — follow its lead and approve or request changes at each gate.</div>
 
     <div class="mb-4">
@@ -71,7 +75,7 @@
             <p>You kick off the entire workflow with a single prompt describing what you want to build. AI-DLC Workflow takes it from there.</p>
             <div class="think-box">💡 <strong>Think about your product catalog:</strong> This one prompt captures the intent — customers browsing and buying, admins managing. The workflow handles the phasing automatically.</div>
             <p><strong>Open a new chat and type:</strong></p>
-            <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('wf-0',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="wf-0">Using AI-DLC, build a product catalog system where customers can browse products, search, view details, and add items to cart. Admins can manage products and inventory.</pre></div>
+            <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('wf-0',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="wf-0">Using AI-DLC, build a local-first e-commerce product catalog using React, Vite, FastAPI, SQLite, and Docker Compose for Operations packaging. Customers can browse products, search, view details, and add items to a SQLite-backed cart. Admins can manage products and inventory without login. Use static placeholder image URLs.</pre></div>
             <p>AI-DLC Workflow activates, displays a welcome message, scans your workspace, sets up <code>aidlc-docs/</code>, and proceeds to the next stage.</p>
         </div>
     </div>
@@ -82,7 +86,7 @@
         <div class="prompt-title"><span class="step-badge">Inception</span> Activity 2: Requirements Analysis (~15 minutes)</div>
         <div class="vision-section" style="border-radius:0 0 8px 8px;margin-top:0">
             <p>The AI analyzes your request and asks clarifying questions about anything unclear. You'll also see a question about enabling security extension rules.</p>
-            <div class="think-box">💡 <strong>Think about your product catalog:</strong> What product categories exist? How does search work — by name, category, price range? What does the cart look like? What can admins do — CRUD products, manage inventory, view orders?</div>
+            <div class="think-box">💡 <strong>Think about your product catalog:</strong> What product categories exist? How does search work — by name, category, price range? What does the SQLite-backed cart look like? What can admins do — CRUD products and manage inventory? Product images should be static placeholder URLs, not uploaded files.</div>
             <p><strong>When the AI presents the questions file:</strong> Open it, fill in your <code>[Answer]:</code> tags. For the security extension question, answer "No" since this is a prototype. Then tell the AI:</p>
             <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('wf-1',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="wf-1">I have answered the clarification questions. Please re-read the file and proceed.</pre></div>
             <p>The AI may ask follow-up questions. Once resolved, it generates a requirements document.</p>
@@ -94,7 +98,7 @@
         <div class="prompt-title"><span class="step-badge">Inception</span> Activity 3: User Stories (~20 minutes)</div>
         <div class="vision-section" style="border-radius:0 0 8px 8px;margin-top:0">
             <p>The AI creates user stories that become the contract for what gets built. It runs in two parts: first it plans how to structure the stories, then it generates them with personas and acceptance criteria.</p>
-            <div class="think-box">💡 <strong>Think about your product catalog:</strong> You'll get stories for both customer-facing features (browsing, search, cart) and admin features (product management, inventory). The acceptance criteria define the contract for code generation.</div>
+            <div class="think-box">💡 <strong>Think about your product catalog:</strong> You'll get stories for both customer-facing features (browsing, search, SQLite-backed cart) and admin features (product management, inventory without login). The acceptance criteria define the contract for code generation.</div>
             <p><strong>Part 1 — Planning:</strong> The AI creates a story generation plan with questions. Open the plan file, fill in your answers, then tell the AI you're done.</p>
             <div class="gate-box">📋 The AI will present an approval gate — review the output and approve to continue, or request changes if needed.</div>
             <p class="mt-3"><strong>Part 2 — Generation:</strong> The AI executes the plan step by step, marking checkboxes as it goes.</p>
@@ -108,8 +112,8 @@
         <div class="vision-section" style="border-radius:0 0 8px 8px;margin-top:0">
             <p>The AI determines which Construction stages to run and decomposes the system into multiple units that can be built independently. Units are ordered so everything is built properly.</p>
             <div class="think-box">💡 <strong>Think about your product catalog:</strong> Expect units like product catalog/browsing, search, shopping cart, and admin management. The ordering matters — data models and core catalog before cart and admin features.</div>
-            <p>If you want deployment and Infrastructure Design is marked SKIP:</p>
-            <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('wf-2',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="wf-2">Add Infrastructure Design to the plan. We need deployment to AWS.</pre></div>
+            <p>If you want local packaging and Local Packaging is marked SKIP:</p>
+            <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('wf-2',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="wf-2">Add Local Packaging to the plan. We need backend and frontend Dockerfiles, docker-compose.yml, .env.example, SQLite persistence, and a local deployment guide for the Operations step.</pre></div>
             <div class="gate-box mt-2">📋 The AI will present an approval gate — review the execution plan and approve to continue, or request changes if needed.</div>
             <div class="context-reset">💡 <strong>Context reset (optional):</strong> Starting a fresh chat before Construction can help if the Inception phase was long. Skip if things are going smoothly.</div>
         </div>
@@ -121,7 +125,7 @@
         <div class="prompt-title"><span class="step-badge">Construction</span> Activity 5: Functional Design (~20 minutes)</div>
         <div class="vision-section" style="border-radius:0 0 8px 8px;margin-top:0">
             <p>AI-DLC Workflow designs the detailed component model — all components, data models, APIs, and how they interact. No code yet.</p>
-            <div class="think-box">💡 <strong>Think about your product catalog:</strong> The design will cover components for product management, catalog browsing, search, cart, and admin. Watch how the AI maps each component back to user stories.</div>
+            <div class="think-box">💡 <strong>Think about your product catalog:</strong> The design will cover React components, FastAPI routes, SQLite tables, repositories, product management, catalog browsing, search, cart, and admin inventory screens. Watch how the AI maps each component back to user stories.</div>
             <div class="gate-box">📋 The AI will present an approval gate — review the output and approve to continue, or request changes if needed.</div>
         </div>
     </div>
@@ -130,7 +134,7 @@
         <div class="prompt-title"><span class="step-badge">Construction</span> Activity 6: Code Generation (~60 minutes)</div>
         <div class="vision-section" style="border-radius:0 0 8px 8px;margin-top:0">
             <p>The main build activity. AI-DLC Workflow's Construction phase has a built-in per-unit loop — for each unit of work, it runs design and code generation stages in sequence, completing each unit fully before moving to the next. The approval gate after each unit says "Continue to next unit" or "Proceed to Build &amp; Test." This is less explicit than a manual tracker (like the one in the Copy-Paste Prompts tab), but the workflow handles the cycling automatically.</p>
-            <div class="think-box">💡 <strong>Think about your product catalog:</strong> The AI will implement each unit, building data models, backend APIs, and frontend components. Watch how it ensures previously implemented units still work as new ones are added. After all units, it runs comprehensive end-to-end tests.</div>
+            <div class="think-box">💡 <strong>Think about your product catalog:</strong> The AI will implement each unit across backend, frontend, and database as needed. Watch how it ensures previously implemented units still work as new ones are added. After all units, it runs comprehensive local tests.</div>
             <p><strong>Part 1 — Planning:</strong> The AI creates a code generation plan with numbered, checkboxed steps.</p>
             <div class="gate-box">📋 The AI will present an approval gate — review the output and approve to continue, or request changes if needed.</div>
             <p class="mt-3"><strong>Part 2 — Generation:</strong> The AI implements each unit, tests it, validates integration, and marks it complete before moving to the next.</p>
@@ -140,10 +144,17 @@
     </div>
 
     <div class="mb-4">
-        <div class="prompt-title"><span class="step-badge">Construction</span> Activity 7: Infrastructure Design + Deployment (~20 minutes)</div>
+        <div class="prompt-title"><span class="step-badge">Operations</span> Activity 7: Local Full-Stack Packaging (~20 minutes)</div>
         <div class="vision-section" style="border-radius:0 0 8px 8px;margin-top:0">
-            <p>The AI designs the AWS deployment architecture, creates infrastructure as code for all resources, and deploys to us-west-2.</p>
-            <div class="think-box">💡 <strong>Think about your product catalog:</strong> The infrastructure needs to support both the frontend (product browsing, cart) and backend (APIs, data storage). The AI will determine the right AWS services based on your design.</div>
+            <p>The AI packages the local full-stack application for repeatable Operations use. This covers:</p>
+            <ul>
+                <li>Backend Dockerfile for the FastAPI service</li>
+                <li>Frontend Dockerfile or Nginx static container for the React build</li>
+                <li><code>docker-compose.yml</code> exposing the backend at <code>http://localhost:8000</code> and frontend at <code>http://localhost:3000</code></li>
+                <li>Persistent SQLite storage under <code>./data/catalog.db</code></li>
+                <li><code>.env.example</code>, local deployment guide, and validation report</li>
+            </ul>
+            <div class="think-box">💡 <strong>Think about your product catalog:</strong> Docker Compose is for the Operations step. The first development path can run backend and frontend directly, while the packaged path proves the full stack can start consistently on another machine.</div>
             <div class="gate-box">📋 The AI will present approval gates at each step — review and approve to continue, or request changes if needed.</div>
         </div>
     </div>
@@ -151,8 +162,18 @@
     <div class="mb-4">
         <div class="prompt-title"><span class="step-badge">Construction</span> Build and Test (~10 minutes)</div>
         <div class="vision-section" style="border-radius:0 0 8px 8px;margin-top:0">
-            <p>AI-DLC Workflow generates build and test instructions. Verify the deployed application works end-to-end.</p>
-            <div class="note-box">The exact directory names, file names, and URLs will vary. Check the build instructions for the exact values.</div>
+            <p>AI-DLC Workflow generates build and test instructions. Verify the local application works end-to-end.</p>
+            <div class="note-box">The exact directory names, file names, and scripts may vary. Check the build instructions for the exact values.</div>
+            <pre class="bg-dark text-light p-3 rounded">cd backend
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000</pre>
+            <pre class="bg-dark text-light p-3 rounded">cd frontend
+npm install
+npm run build
+npm run preview -- --host 0.0.0.0</pre>
+            <p>Validate the API at <code>http://localhost:8000/docs</code>, the frontend at <code>http://localhost:4173</code>, and the Docker Compose packaged frontend at <code>http://localhost:3000</code>.</p>
         </div>
     </div>
 
@@ -162,13 +183,13 @@
         <div class="prompt-title"><span class="step-badge">Operations</span> Activity 8: Operations Discussion (~10 minutes)</div>
         <div class="vision-section" style="border-radius:0 0 8px 8px;margin-top:0">
             <p>AI-DLC Workflow's Operations phase is a placeholder for future expansion. This is a group discussion.</p>
-            <div class="think-box">💡 <strong>Think about your product catalog:</strong> How would you handle product image uploads? What about scaling during sales events? How would you add analytics to track popular products? What about user authentication for the cart?</div>
+            <div class="think-box">💡 <strong>Think about your product catalog:</strong> How would you back up SQLite data, reset seed data, inspect container logs, migrate to PostgreSQL later, or replace placeholder image URLs with real hosted images?</div>
             <p><strong>Discuss as a group:</strong></p>
-            <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('wf-3',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="wf-3">Now that we've built and deployed our product catalog, discuss how AI would help with:
-1. Adding product recommendations
-2. Implementing user authentication
-3. Adding an analytics dashboard
-4. Scaling during high-traffic events
+            <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('wf-3',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="wf-3">Now that we've built and packaged our product catalog, discuss how AI would help with:
+1. Backing up and restoring the SQLite product catalog
+2. Resetting seed data safely during local development
+3. Adding analytics for popular products
+4. Migrating from SQLite to PostgreSQL or hosted infrastructure later
 
 Please explain how this would work for our specific application.</pre></div>
         </div>
@@ -199,6 +220,7 @@ Please explain how this would work for our specific application.</pre></div>
         <div class="prompt-title"><span class="step-badge">Inception</span> Activity 2: Intent Definition (5 minutes)</div>
         <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('p-1',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="p-1">Intent:
 Build a product catalog system where customers can browse products, search, view details, and add items to cart. Admins can manage products and inventory.
+Use React, Vite, FastAPI, SQLite, and Docker Compose for Operations packaging. Persist products, inventory, and cart data in SQLite. Admin management has no login. Product images use static placeholder image URLs.
 
 Do not propose solutions yet.
 Acknowledge the intent and confirm understanding.</pre></div>
@@ -229,7 +251,7 @@ Write the units to aidlc-docs/story-artifacts/units.md</pre></div>
         <div class="prompt-title"><span class="step-badge">Construction</span> Activity 5: Domain Model Creation (20 minutes)</div>
         <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('p-4',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="p-4">Your Role: You are an experienced software architect and engineer. Before you start the task as mentioned below, please do the planning and write your steps in the aidlc-docs/plans/domain_model_plan.md file with checkboxes against each step in the plan. List your Deliverables in the plan file. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Your Task: Design the domain model to implement all the user stories. This model shall contain all the components, the data models, the APIs, and how the components interact to implement the user stories. The components should be at a business level, do not generate any code yet.
+Your Task: Design the domain model to implement all the user stories. This model shall contain all the React components, FastAPI routes, SQLite data models, repositories, APIs, and how the components interact to implement the user stories. The components should be at a business level, do not generate any code yet.
 
 Write the domain model into aidlc-docs/design-artifacts/domain_model.md</pre></div>
         <div class="alert alert-warning mt-2"><strong>Follow-up:</strong> Review the domain model and provide feedback.</div>
@@ -268,7 +290,7 @@ Show me the tracker file.</pre></div>
 
 1. Implement ONLY that unit from aidlc-docs/story-artifacts/units.md
 2. Refer to the domain model in aidlc-docs/design-artifacts/domain_model.md
-3. Build data models, backend APIs, and frontend components for this unit
+3. Build SQLite data models/repositories, FastAPI routes, and React components for this unit as needed
 4. Ensure all previously implemented units still work
 5. Mark the unit as complete in the tracker by checking the checkbox
 
@@ -299,20 +321,38 @@ Show me complete test results and the final tracker with all units checked.</pre
     </div>
 
     <div class="mb-4">
-        <div class="prompt-title"><span class="step-badge">Operations</span> Activity 7: Deploy the Application (20 minutes)</div>
-        <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('p-8',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="p-8">Your Role: You are an experienced Cloud Architect. Before you start the task as mentioned below, please do the planning and write your steps in the aidlc-docs/plans/deployment_plan.md file with checkboxes against each step in the plan. List your Deliverables in the plan file. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
+        <div class="prompt-title"><span class="step-badge">Operations</span> Activity 7: Local Full-Stack Packaging (20 minutes)</div>
+        <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('p-8',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="p-8">Your Role: You are an experienced platform engineer. Before you start the task as mentioned below, please do the planning and write your steps in the aidlc-docs/plans/deployment_plan.md file with checkboxes against each step in the plan. List your Deliverables in the plan file. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Your Task: Deploy the application to AWS. Create infrastructure as code for all resources. Deploy to us-west-2 region.</pre></div>
-        <div class="alert alert-warning mt-2"><strong>Follow-up:</strong> Review deployment and test the live application.</div>
+Your Task: Package the local-first React + FastAPI + SQLite product catalog for the Operations step. Do not require AWS services, AWS credentials, CloudFormation, or any cloud account.
+
+Create:
+- backend/Dockerfile for the FastAPI service
+- frontend/Dockerfile or Nginx static container for the React build
+- docker-compose.yml exposing backend at http://localhost:8000 and frontend at http://localhost:3000
+- .env.example
+- persistent SQLite storage under ./data/catalog.db
+- DEPLOYMENT/local-deployment-guide.md
+- DEPLOYMENT/validation-report.md
+
+Requirements:
+- Backend API docs work at http://localhost:8000/docs
+- Frontend works at http://localhost:3000 when packaged
+- Product, inventory, and cart data persist in SQLite
+- Include commands for docker compose up --build, docker compose ps, docker compose logs, and docker compose down
+- Validate customer browse/search/detail/cart flows and admin product/inventory flows
+- Review the validation report and fix all identified issues, then update the validation report</pre></div>
+        <div class="alert alert-warning mt-2"><strong>Follow-up:</strong> Review local packaging and test the running application.</div>
     </div>
 
     <!-- Expected Outcomes -->
     <div class="mt-5">
         <h3>Expected Outcomes</h3>
         <ul>
-            <li>✅ A working product catalog system deployed to AWS</li>
+            <li>✅ A working local full-stack product catalog</li>
             <li>✅ Complete AI-DLC documentation trail</li>
-            <li>✅ Infrastructure as code</li>
+            <li>✅ SQLite-backed product, inventory, and cart persistence</li>
+            <li>✅ Docker Compose local packaging</li>
             <li>✅ Experience building units incrementally with test/validate workflow</li>
             <li>✅ Understanding of AI-DLC methodology</li>
         </ul>

@@ -33,7 +33,7 @@
             <a href="index.html" class="btn btn-outline-primary back-btn"><i class="bi bi-arrow-left"></i> Back to Workshops</a>
 
             <h2 class="mb-4"><span id="workshop-number"></span>Brownfield E-Commerce Modernization</h2>
-            <p class="lead">Use AI-DLC Workflow to analyze and modernize an existing e-commerce codebase</p>
+            <p class="lead">Use AI-DLC Workflow to analyze and modernize an existing local Node.js, React, and SQLite e-commerce codebase</p>
 
             <div class="vision-section">
                 <div class="alert alert-info">
@@ -45,12 +45,17 @@
                     </a>
                 </div>
                 <h3>Workshop Overview</h3>
-                <p>A sample e-commerce application with user authentication, product catalog, shopping cart, checkout, order history, and category filtering. Use AI-DLC Workflow to analyze and modernize it — the workflow automatically reverse-engineers the codebase before you start building.</p>
+                <p><strong>Stack:</strong> Node.js backend / React frontend / SQLite / Docker Compose</p>
+                <p>A sample e-commerce application with user authentication, product catalog, shopping cart, checkout, order history, and category filtering. Use AI-DLC Workflow to analyze and modernize it — the workflow automatically reverse-engineers the codebase before you start building. Keep the project local-first: run it locally, inspect the existing scripts, and modify the existing codebase in place.</p>
                 <h4 class="mt-4">Prerequisites</h4>
                 <ul>
-                    <li>AI-DLC Workflow rules installed (<a href="https://github.com/awslabs/aidlc-workflows#quick-start" target="_blank">setup instructions</a>)</li>
+                    <li>AI-DLC Workflow rules installed (<a href="setup-instructions.html#workshop-5-setup">Workshop 5 Setup Instructions</a>)</li>
                     <li>The brownfield repo cloned locally</li>
+                    <li>Git</li>
                     <li>Node.js v18+ and npm</li>
+                    <li>Docker Compose</li>
+                    <li>SQLite CLI recommended for database inspection and debugging</li>
+                    <li>Browser for local validation</li>
                     <li>Access to an AI assistant (Kiro, Claude, Cursor, etc.)</li>
                 </ul>
             </div>
@@ -60,6 +65,7 @@
                 <h3><i class="bi bi-search"></i> How AI-DLC Workflow Handles Brownfield</h3>
                 <p>When you start the workflow in this repo, Workspace Detection finds existing code (Node.js backend, React frontend, SQLite database) and flags it as a <strong>brownfield project</strong>. The workflow then automatically runs <strong>Reverse Engineering</strong> before Requirements Analysis — it analyzes all packages and components, generates architecture documentation, code structure docs, API documentation, component inventory, interaction diagrams, technology stack docs, and dependency documentation.</p>
                 <p>All of this goes into <code>aidlc-docs/inception/reverse-engineering/</code>. You don't need to tell the AI about the codebase — it reads it and documents it for you. The reverse engineering output becomes the foundation for whatever you build next.</p>
+                <div class="note-box">Before asking AI-DLC to change anything, run the existing application locally and capture the current behavior. The goal is modernization in place, not scaffolding a replacement app.</div>
             </div>
 
             <!-- What to Expect -->
@@ -74,6 +80,7 @@
                     <li><strong>Workflow Planning</strong> — determines which Construction stages to run, noting which existing files to modify vs create new</li>
                     <li><strong>Construction</strong> — designs and generates code that integrates with the existing codebase. Modifies existing files in-place rather than creating duplicates.</li>
                 </ol>
+                <p>After reverse engineering, validate the existing app with the repo's npm scripts, Docker Compose configuration, and SQLite database before implementing your selected intent.</p>
                 <p>The AI will present approval gates at each stage — review and approve to continue, or request changes if needed.</p>
             </div>
 
@@ -139,12 +146,17 @@
 
             <div class="intent-card">
                 <h5>Containerize the Application</h5>
-                <div class="intent-prompt"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('i-10',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="i-10" class="mb-0" style="color:#f8f8f2">Using AI-DLC, dockerize the application — create Dockerfiles for backend and frontend, add docker-compose for local development, configure environment variables, add health checks, and document the deployment process.</pre></div>
+                <div class="intent-prompt"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('i-10',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="i-10" class="mb-0" style="color:#f8f8f2">Using AI-DLC, dockerize the application — create Dockerfiles for backend and frontend, add docker-compose for local development, configure environment variables, add health checks, and document the local Docker Compose runbook.</pre></div>
+            </div>
+
+            <div class="intent-card">
+                <h5>Local Developer Onboarding</h5>
+                <div class="intent-prompt"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('i-11',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="i-11" class="mb-0" style="color:#f8f8f2">Using AI-DLC, improve local developer onboarding for this brownfield e-commerce app. Document setup steps, verify npm scripts, add .env.example, add seed/reset database scripts, add Docker Compose health checks, and create a local runbook so a new developer can clone the repo and run the app consistently.</pre></div>
             </div>
 
             <div class="intent-card">
                 <h5>Recommendation Engine</h5>
-                <div class="intent-prompt"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('i-11',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="i-11" class="mb-0" style="color:#f8f8f2">Using AI-DLC, add a product recommendation engine — "customers also bought" suggestions, similar products section, trending products widget, and recently viewed items.</pre></div>
+                <div class="intent-prompt"><button class="btn btn-sm btn-light copy-btn" onclick="copyId('i-12',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="i-12" class="mb-0" style="color:#f8f8f2">Using AI-DLC, add a product recommendation engine — "customers also bought" suggestions, similar products section, trending products widget, and recently viewed items.</pre></div>
             </div>
 
             <!-- Tips -->
@@ -152,7 +164,9 @@
                 <h4><i class="bi bi-lightbulb"></i> Tips for Brownfield</h4>
                 <ul>
                     <li><strong>Let Reverse Engineering finish before doing anything.</strong> It produces the foundation that all later stages reference. Don't skip it.</li>
+                    <li><strong>Run the app before changing it.</strong> Capture baseline behavior, scripts, ports, and SQLite database location.</li>
                     <li><strong>Reset context after Reverse Engineering.</strong> The output can be large. Start a fresh chat and resume from the state file.</li>
+                    <li><strong>Keep a clean git status.</strong> Commit or stash unrelated local changes before a modernization task so AI-generated edits are easier to review.</li>
                     <li><strong>Watch for file modifications vs new files.</strong> AI-DLC Workflow should modify existing files in-place, not create copies like <code>CartService_modified.js</code>. If you see duplicates, flag it.</li>
                     <li><strong>The AI knows what exists.</strong> After reverse engineering, it understands the current architecture, services, routes, and components. Your intent just needs to say what to add or change.</li>
                     <li><strong>Start with a smaller intent.</strong> If you're new to AI-DLC Workflow, pick something like "Add product reviews" before attempting "Migrate to TypeScript."</li>

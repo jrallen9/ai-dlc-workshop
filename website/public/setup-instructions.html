@@ -54,15 +54,22 @@
                     <nav class="setup-toc sticky-lg-top" aria-label="Setup table of contents">
                         <h2>Contents</h2>
                         <a href="#before-you-start">Before You Start</a>
-                        <a href="#openai-codex">OpenAI Codex</a>
+                        <a href="#ai-coding-tools">AI Coding Tools</a>
+                        <a href="#openai-codex">Option A: OpenAI Codex</a>
                         <a href="#codex-windows">Codex on Windows</a>
                         <a href="#codex-wsl">Codex on WSL Ubuntu</a>
                         <a href="#codex-macos">Codex on Mac OS</a>
-                        <a href="#claude-code">Claude Code</a>
+                        <a href="#claude-code">Option B: Claude Code</a>
                         <a href="#claude-windows">Claude on Windows</a>
                         <a href="#claude-wsl">Claude on WSL Ubuntu</a>
                         <a href="#claude-macos">Claude on Mac OS</a>
-                        <a href="#qwen-llamacpp">Local Qwen with llama.cpp</a>
+                        <a href="#qwen-llamacpp">Option C: Local Qwen</a>
+                        <a href="#workshop-setup">Workshop Setup</a>
+                        <a href="#workshop-1-setup">Workshop 1 Setup</a>
+                        <a href="#workshop-2-setup">Workshop 2 Setup</a>
+                        <a href="#workshop-3-setup">Workshop 3 Setup</a>
+                        <a href="#workshop-4-setup">Workshop 4 Setup</a>
+                        <a href="#workshop-5-setup">Workshop 5 Setup</a>
                         <a href="#verify-setup">Verify Setup</a>
                     </nav>
                 </aside>
@@ -102,7 +109,12 @@ npm --version</code></pre>
                         </div>
                     </section>
 
-                    <section id="openai-codex" class="setup-section">
+                    <section id="ai-coding-tools" class="setup-section">
+                        <span class="step-badge">AI Tools</span>
+                        <h2>AI Coding Tools</h2>
+                        <p>Choose one AI coding tool before starting a workshop. Hosted tools are the simplest path for most learners; the local Qwen path is available for users who need a local model and have the required hardware.</p>
+
+                        <article id="openai-codex" class="tutorial-block">
                         <span class="step-badge">Option A</span>
                         <h2>OpenAI Codex</h2>
                         <p>Codex CLI runs in your terminal. The official release guidance highlights macOS and Linux binaries, so Windows workshop users should use WSL2 Ubuntu unless native Windows support has been confirmed for their environment.</p>
@@ -152,9 +164,9 @@ codex</code></pre>
 npm install -g @openai/codex
 codex</code></pre>
                         </article>
-                    </section>
+                        </article>
 
-                    <section id="claude-code" class="setup-section">
+                        <article id="claude-code" class="tutorial-block">
                         <span class="step-badge">Option B</span>
                         <h2>Claude Code</h2>
                         <p>Claude Code runs in a terminal and requires an Anthropic-supported account. Anthropic supports macOS, Ubuntu/Debian, and Windows through WSL or Git for Windows.</p>
@@ -201,9 +213,9 @@ claude</code></pre>
 brew install --cask claude-code
 claude</code></pre>
                         </article>
-                    </section>
+                        </article>
 
-                    <section id="qwen-llamacpp" class="setup-section">
+                        <article id="qwen-llamacpp" class="tutorial-block">
                         <span class="step-badge">Option C</span>
                         <h2>Local Qwen3.6-27B with llama.cpp and TurboQuant</h2>
                         <p>This path runs a local TurboQuant GGUF of <code>Qwen/Qwen3.6-27B</code>. It avoids hosted model calls, but it is the most hardware-sensitive setup in the workshop. Start with <code>TQ4_1S</code> on a 24 GB or larger GPU, or use <code>TQ2_0</code> / <code>TQ1_0</code> on tighter hardware with reduced quality expectations.</p>
@@ -270,6 +282,377 @@ wget https://huggingface.co/mad-lab-ai/Qwen3.6-27B-tq-gguf/resolve/main/Qwen3.6-
   --flash-attn \
   --no-mmap \
   -p "Create a three-step plan for a task manager app."</code></pre>
+                        </article>
+                        </article>
+                    </section>
+
+                    <section id="workshop-setup" class="setup-section">
+                        <span class="step-badge">Tools</span>
+                        <h2>Workshop Setup</h2>
+                        <p>Use these workshop-specific prerequisites after choosing an AI coding tool. Workshop 1 and Workshop 3 are detailed because they are being prepared as local-first, open-source-stack workshops. Workshops 2, 4, and 5 have light placeholders until their stacks are reviewed.</p>
+
+                        <article id="workshop-1-setup" class="tutorial-block">
+                            <span class="step-badge">Workshop 1</span>
+                            <h3>Task Manager Application</h3>
+                            <p>Required stack: Python Flask, SQLite, a minimal HTML frontend, local browser testing, and Docker Compose for the Operations packaging step.</p>
+                            <div class="table-responsive">
+                                <table class="table table-sm align-middle">
+                                    <thead>
+                                        <tr><th>Tool</th><th>Required for</th><th>Verify</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>Git</td><td>Project files and version control</td><td><code>git --version</code></td></tr>
+                                        <tr><td>Python 3.11+</td><td>Flask backend, SQLite access, tests</td><td><code>python --version</code> or <code>python3 --version</code></td></tr>
+                                        <tr><td>venv + pip</td><td>Isolated Python dependencies</td><td><code>python -m pip --version</code></td></tr>
+                                        <tr><td>SQLite</td><td>Default local persistence</td><td>Bundled with Python via <code>sqlite3</code></td></tr>
+                                        <tr><td>Browser</td><td>Minimal HTML frontend</td><td>Open <code>http://localhost:5000</code></td></tr>
+                                        <tr><td>Docker Compose</td><td>Operations packaging step</td><td><code>docker compose version</code></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="setup-note">Expected local URLs: Python run at <code>http://localhost:5000</code>, Docker Compose run at <code>http://localhost:5000</code>, and health check at <code>http://localhost:5000/health</code>.</p>
+
+                            <article id="workshop-1-windows" class="tutorial-block">
+                                <h4><i class="bi bi-windows"></i> Windows</h4>
+                                <p>Use native Windows for the basic Flask run. Docker Desktop is only needed when you reach the Operations packaging step.</p>
+                                <pre><code>git --version
+py -3 --version
+py -3 -m pip --version
+py -3 -c "import sqlite3; print(sqlite3.sqlite_version)"
+docker --version
+docker compose version</code></pre>
+                                <pre><code>py -3 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python app.py</code></pre>
+                            </article>
+
+                            <article id="workshop-1-wsl" class="tutorial-block">
+                                <h4><i class="bi bi-ubuntu"></i> Windows WSL Ubuntu</h4>
+                                <p>Use WSL Ubuntu if you prefer a Linux shell or are already using WSL for your AI coding tool. Keep workshop files under your Linux home directory.</p>
+                                <pre><code>sudo apt update
+sudo apt install -y git curl python3 python3-venv python3-pip</code></pre>
+                                <pre><code>git --version
+python3 --version
+python3 -m pip --version
+python3 -c "import sqlite3; print(sqlite3.sqlite_version)"
+docker --version
+docker compose version</code></pre>
+                                <pre><code>python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python app.py</code></pre>
+                            </article>
+
+                            <article id="workshop-1-macos" class="tutorial-block">
+                                <h4><i class="bi bi-apple"></i> Mac OS</h4>
+                                <p>Install Python and Git with Homebrew or official installers. Docker Desktop is only needed for the Operations packaging step.</p>
+                                <pre><code>xcode-select --install
+brew install git python</code></pre>
+                                <pre><code>git --version
+python3 --version
+python3 -m pip --version
+python3 -c "import sqlite3; print(sqlite3.sqlite_version)"
+docker --version
+docker compose version</code></pre>
+                                <pre><code>python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python app.py</code></pre>
+                            </article>
+                        </article>
+
+                        <article id="workshop-2-setup" class="tutorial-block">
+                            <span class="step-badge">Workshop 2</span>
+                            <h3>Local Job Application Website</h3>
+                            <p>Required stack: React, Vite, seeded job data, browser <code>localStorage</code>, and Docker Compose for the Operations packaging step.</p>
+                            <div class="table-responsive">
+                                <table class="table table-sm align-middle">
+                                    <thead>
+                                        <tr><th>Tool</th><th>Required for</th><th>Verify</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>Git</td><td>Project files and version control</td><td><code>git --version</code></td></tr>
+                                        <tr><td>Node.js LTS</td><td>React/Vite app runtime tooling</td><td><code>node --version</code></td></tr>
+                                        <tr><td>npm</td><td>Install, build, preview, and test scripts</td><td><code>npm --version</code></td></tr>
+                                        <tr><td>Browser</td><td>Frontend preview and localStorage validation</td><td>Open <code>http://localhost:4173</code></td></tr>
+                                        <tr><td>Docker Compose</td><td>Operations static packaging with Nginx</td><td><code>docker compose version</code></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="setup-note">Expected local URLs: Vite preview at <code>http://localhost:4173</code> and Docker Compose/Nginx at <code>http://localhost:3000</code>.</p>
+
+                            <article id="workshop-2-windows" class="tutorial-block">
+                                <h4><i class="bi bi-windows"></i> Windows</h4>
+                                <p>Use native Windows for the frontend workflow. Docker Desktop is only needed for the Operations packaging step.</p>
+                                <pre><code>git --version
+node --version
+npm --version
+docker --version
+docker compose version</code></pre>
+                                <pre><code>cd job-app
+npm install
+npm run build
+npm run preview -- --host 0.0.0.0</code></pre>
+                            </article>
+
+                            <article id="workshop-2-wsl" class="tutorial-block">
+                                <h4><i class="bi bi-ubuntu"></i> Windows WSL Ubuntu</h4>
+                                <p>Use WSL Ubuntu if you prefer a Linux shell or are already using WSL for your AI coding tool. Keep project files under your Linux home directory for smoother Docker behavior.</p>
+                                <pre><code>sudo apt update
+sudo apt install -y git curl</code></pre>
+                                <pre><code>git --version
+node --version
+npm --version
+docker --version
+docker compose version</code></pre>
+                                <pre><code>cd job-app
+npm install
+npm run build
+npm run preview -- --host 0.0.0.0</code></pre>
+                            </article>
+
+                            <article id="workshop-2-macos" class="tutorial-block">
+                                <h4><i class="bi bi-apple"></i> Mac OS</h4>
+                                <p>Install Git and Node.js with Homebrew or official installers. Docker Desktop is only needed for the Operations packaging step.</p>
+                                <pre><code>xcode-select --install
+brew install git node</code></pre>
+                                <pre><code>git --version
+node --version
+npm --version
+docker --version
+docker compose version</code></pre>
+                                <pre><code>cd job-app
+npm install
+npm run build
+npm run preview -- --host 0.0.0.0</code></pre>
+                            </article>
+                        </article>
+
+                        <article id="workshop-3-setup" class="tutorial-block">
+                            <span class="step-badge">Workshop 3</span>
+                            <h3>Portable File-Sharing System</h3>
+                            <p>Required stack: Docker Compose, Python, Node.js, MinIO for S3-compatible object storage, ScyllaDB Alternator for DynamoDB-compatible metadata, a local API service, and a React frontend.</p>
+                            <div class="table-responsive">
+                                <table class="table table-sm align-middle">
+                                    <thead>
+                                        <tr><th>Tool</th><th>Purpose</th><th>Verify</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>Docker + Docker Compose</td><td>Run MinIO, ScyllaDB Alternator, API, and frontend</td><td><code>docker compose version</code></td></tr>
+                                        <tr><td>Python 3.11+</td><td>Backend API and scripts</td><td><code>python --version</code> or <code>python3 --version</code></td></tr>
+                                        <tr><td>Node.js LTS + npm</td><td>React frontend</td><td><code>node --version</code></td></tr>
+                                        <tr><td>MinIO</td><td>Provided by Docker Compose</td><td><code>http://localhost:9001</code></td></tr>
+                                        <tr><td>ScyllaDB Alternator</td><td>Provided by Docker Compose</td><td><code>http://localhost:8001</code></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="setup-note">Expected local ports: frontend <code>3000</code>, API <code>8000</code>, ScyllaDB Alternator <code>8001</code>, MinIO API <code>9000</code>, and MinIO console <code>9001</code>.</p>
+
+                            <article id="workshop-3-windows" class="tutorial-block">
+                                <h4><i class="bi bi-windows"></i> Windows</h4>
+                                <p>Install Docker Desktop with the WSL2 backend, Node.js LTS, Python, and Git. Native Windows can run the stack, but WSL Ubuntu is recommended for smoother shell and volume behavior.</p>
+                                <pre><code>git --version
+py -3 --version
+node --version
+npm --version
+docker --version
+docker compose version
+docker run --rm hello-world</code></pre>
+                                <pre><code>netstat -ano | findstr ":3000 :8000 :8001 :9000 :9001"</code></pre>
+                            </article>
+
+                            <article id="workshop-3-wsl" class="tutorial-block">
+                                <h4><i class="bi bi-ubuntu"></i> Windows WSL Ubuntu</h4>
+                                <p>Recommended Windows path. Use Docker Desktop WSL integration and keep the project under <code>~/workshops</code>, not under <code>/mnt/c</code>.</p>
+                                <pre><code>sudo apt update
+sudo apt install -y git curl python3 python3-venv python3-pip</code></pre>
+                                <pre><code>git --version
+python3 --version
+node --version
+npm --version
+docker --version
+docker compose version
+docker run --rm hello-world</code></pre>
+                                <pre><code>lsof -i :3000 -i :8000 -i :8001 -i :9000 -i :9001</code></pre>
+                            </article>
+
+                            <article id="workshop-3-macos" class="tutorial-block">
+                                <h4><i class="bi bi-apple"></i> Mac OS</h4>
+                                <p>Install Docker Desktop, Node.js LTS, Python, and Git. Use the same Docker Compose workflow as WSL/Linux.</p>
+                                <pre><code>xcode-select --install
+brew install git python node</code></pre>
+                                <pre><code>git --version
+python3 --version
+node --version
+npm --version
+docker --version
+docker compose version
+docker run --rm hello-world</code></pre>
+                                <pre><code>lsof -i :3000 -i :8000 -i :8001 -i :9000 -i :9001</code></pre>
+                            </article>
+                        </article>
+
+                        <article id="workshop-4-setup" class="tutorial-block">
+                            <span class="step-badge">Workshop 4</span>
+                            <h3>E-Commerce Product Catalog</h3>
+                            <p>Required stack: React, Vite, FastAPI, SQLite, Python, Node.js, and Docker Compose for the Operations packaging step.</p>
+                            <div class="table-responsive">
+                                <table class="table table-sm align-middle">
+                                    <thead>
+                                        <tr><th>Tool</th><th>Required for</th><th>Verify</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>Git</td><td>Project files and version control</td><td><code>git --version</code></td></tr>
+                                        <tr><td>Node.js LTS + npm</td><td>React/Vite frontend</td><td><code>node --version</code></td></tr>
+                                        <tr><td>Python 3.11+</td><td>FastAPI backend and scripts</td><td><code>python --version</code> or <code>python3 --version</code></td></tr>
+                                        <tr><td>venv + pip</td><td>Isolated backend dependencies</td><td><code>python -m pip --version</code></td></tr>
+                                        <tr><td>SQLite</td><td>Product, inventory, and cart persistence</td><td>Bundled with Python via <code>sqlite3</code></td></tr>
+                                        <tr><td>Docker Compose</td><td>Operations full-stack packaging</td><td><code>docker compose version</code></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="setup-note">Expected local URLs: backend <code>http://localhost:8000</code>, API docs <code>http://localhost:8000/docs</code>, Vite preview <code>http://localhost:4173</code>, and Docker Compose frontend <code>http://localhost:3000</code>.</p>
+
+                            <article id="workshop-4-windows" class="tutorial-block">
+                                <h4><i class="bi bi-windows"></i> Windows</h4>
+                                <p>Use native Windows for local frontend and backend runs. Docker Desktop is only needed for the Operations packaging step.</p>
+                                <pre><code>git --version
+node --version
+npm --version
+py -3 --version
+py -3 -m pip --version
+py -3 -c "import sqlite3; print(sqlite3.sqlite_version)"
+docker --version
+docker compose version</code></pre>
+                                <pre><code>cd backend
+py -3 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000</code></pre>
+                                <pre><code>cd frontend
+npm install
+npm run build
+npm run preview -- --host 0.0.0.0</code></pre>
+                            </article>
+
+                            <article id="workshop-4-wsl" class="tutorial-block">
+                                <h4><i class="bi bi-ubuntu"></i> Windows WSL Ubuntu</h4>
+                                <p>Use WSL Ubuntu if you prefer a Linux shell or are already using WSL for your AI coding tool. Keep project files under your Linux home directory for smoother Docker behavior.</p>
+                                <pre><code>sudo apt update
+sudo apt install -y git curl python3 python3-venv python3-pip</code></pre>
+                                <pre><code>git --version
+node --version
+npm --version
+python3 --version
+python3 -m pip --version
+python3 -c "import sqlite3; print(sqlite3.sqlite_version)"
+docker --version
+docker compose version</code></pre>
+                                <pre><code>cd backend
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000</code></pre>
+                                <pre><code>cd frontend
+npm install
+npm run build
+npm run preview -- --host 0.0.0.0</code></pre>
+                            </article>
+
+                            <article id="workshop-4-macos" class="tutorial-block">
+                                <h4><i class="bi bi-apple"></i> Mac OS</h4>
+                                <p>Install Git, Python, and Node.js with Homebrew or official installers. Docker Desktop is only needed for the Operations packaging step.</p>
+                                <pre><code>xcode-select --install
+brew install git python node</code></pre>
+                                <pre><code>git --version
+node --version
+npm --version
+python3 --version
+python3 -m pip --version
+python3 -c "import sqlite3; print(sqlite3.sqlite_version)"
+docker --version
+docker compose version</code></pre>
+                                <pre><code>cd backend
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000</code></pre>
+                                <pre><code>cd frontend
+npm install
+npm run build
+npm run preview -- --host 0.0.0.0</code></pre>
+                            </article>
+                        </article>
+
+                        <article id="workshop-5-setup" class="tutorial-block">
+                            <span class="step-badge">Workshop 5</span>
+                            <h3>Brownfield E-Commerce</h3>
+                            <p>Required stack: existing Node.js backend, React frontend, SQLite database, Docker Compose, and AI-DLC reverse engineering. SQLite CLI is recommended for inspecting and debugging the existing database.</p>
+                            <div class="table-responsive">
+                                <table class="table table-sm align-middle">
+                                    <thead>
+                                        <tr><th>Tool</th><th>Required for</th><th>Verify</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>Git</td><td>Clone and review the brownfield repo</td><td><code>git --version</code></td></tr>
+                                        <tr><td>Node.js LTS + npm</td><td>Existing backend/frontend scripts</td><td><code>node --version</code></td></tr>
+                                        <tr><td>Docker Compose</td><td>Required local runtime/packaging path</td><td><code>docker compose version</code></td></tr>
+                                        <tr><td>SQLite CLI</td><td>Recommended database inspection/debugging</td><td><code>sqlite3 --version</code></td></tr>
+                                        <tr><td>Browser</td><td>Local app validation</td><td>Check repo scripts for ports</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="setup-note">Ports depend on the brownfield repo scripts. Common defaults are frontend <code>http://localhost:3000</code> or <code>http://localhost:5173</code>, and backend <code>http://localhost:3001</code> or <code>http://localhost:8000</code>. Inspect <code>package.json</code> after cloning.</p>
+
+                            <article id="workshop-5-windows" class="tutorial-block">
+                                <h4><i class="bi bi-windows"></i> Windows</h4>
+                                <p>Use native Windows or WSL Ubuntu. Docker Desktop is required for the local runtime/packaging path.</p>
+                                <pre><code>git --version
+node --version
+npm --version
+docker --version
+docker compose version
+sqlite3 --version</code></pre>
+                                <pre><code># After cloning the brownfield repo
+dir
+npm run
+type package.json</code></pre>
+                            </article>
+
+                            <article id="workshop-5-wsl" class="tutorial-block">
+                                <h4><i class="bi bi-ubuntu"></i> Windows WSL Ubuntu</h4>
+                                <p>Recommended Windows path. Use Docker Desktop WSL integration and keep the repo under your Linux home directory.</p>
+                                <pre><code>sudo apt update
+sudo apt install -y git curl sqlite3</code></pre>
+                                <pre><code>git --version
+node --version
+npm --version
+docker --version
+docker compose version
+sqlite3 --version</code></pre>
+                                <pre><code># After cloning the brownfield repo
+find . -maxdepth 3 -name package.json
+npm run
+cat package.json</code></pre>
+                            </article>
+
+                            <article id="workshop-5-macos" class="tutorial-block">
+                                <h4><i class="bi bi-apple"></i> Mac OS</h4>
+                                <p>Install Git, Node.js, SQLite CLI, and Docker Desktop before starting the brownfield workflow.</p>
+                                <pre><code>xcode-select --install
+brew install git node sqlite</code></pre>
+                                <pre><code>git --version
+node --version
+npm --version
+docker --version
+docker compose version
+sqlite3 --version</code></pre>
+                                <pre><code># After cloning the brownfield repo
+find . -maxdepth 3 -name package.json
+npm run
+cat package.json</code></pre>
+                            </article>
                         </article>
                     </section>
 

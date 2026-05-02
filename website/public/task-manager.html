@@ -46,15 +46,17 @@
             <p class="lead">Build a Simple Task Manager - Learn AI-DLC by building something real you can use</p>
 
             <div class="vision-section">
-                <div class="alert alert-info"><i class="bi bi-info-circle"></i> Follow the complete AI-DLC methodology from AWS to build a working task manager application.</div>
+                <div class="alert alert-info"><i class="bi bi-info-circle"></i> Follow the complete AI-DLC methodology to build a local-first task manager with open-source tools.</div>
                 <h3>Workshop Overview</h3>
-                <p><strong>Duration:</strong> ~2.5 hours | <strong>Project:</strong> Personal Task Manager | <strong>Stack:</strong> Python / Flask</p>
+                <p><strong>Duration:</strong> ~2.5 hours | <strong>Project:</strong> Personal Task Manager | <strong>Stack:</strong> Python / Flask / SQLite / HTML</p>
                 <p>Learn the three-phase AI-DLC methodology: <strong>Inception</strong> (Human-led, AI-expanded), <strong>Construction</strong> (AI-led, Human-validated), and <strong>Operations</strong> (AI-assisted, Human-governed).</p>
                 <h4>Prerequisites</h4>
                 <ul>
                     <li>Basic Python knowledge</li>
                     <li>Access to an AI assistant (Kiro, Claude, Cursor, etc.)</li>
-                    <li>AWS account (free tier sufficient)</li>
+                    <li>Python 3.11+, <code>venv</code>, and <code>pip</code></li>
+                    <li>Browser for the minimal HTML frontend</li>
+                    <li>Docker Compose for the Operations packaging step</li>
                     <li>Code editor</li>
                 </ul>
             </div>
@@ -72,7 +74,7 @@
 <!-- ==================== AI-DLC WORKFLOW TAB ==================== -->
 <div class="tab-pane fade show active" id="tab-workflow" role="tabpanel">
 
-    <div class="alert alert-info"><i class="bi bi-info-circle"></i> <strong>Prerequisite:</strong> AI-DLC Workflow rules installed in your coding assistant. <a href="https://github.com/awslabs/aidlc-workflows#quick-start" target="_blank">Setup instructions →</a></div>
+    <div class="alert alert-info"><i class="bi bi-info-circle"></i> <strong>Prerequisite:</strong> AI-DLC Workflow rules installed in your coding assistant. <a href="setup-instructions.html#workshop-1-setup">Workshop 1 Setup Instructions →</a></div>
     <div class="alert alert-warning"><i class="bi bi-exclamation-triangle"></i> AI-DLC Workflow is adaptive. Based on how you answer questions, the complexity of your request, and the AI's assessment, some stages may be skipped, combined, or run at different levels of detail. The activities below represent the typical flow for this use case, but your experience may differ. The workflow will always tell you what it's doing and why — follow its lead and approve or request changes at each gate.</div>
 
     <!-- Activity 1 -->
@@ -82,7 +84,7 @@
             <p>You kick off the entire workflow with a single prompt describing what you want to build. AI-DLC Workflow takes it from there — it detects your workspace, sets up tracking, and starts guiding you through the phases.</p>
             <div class="think-box">💡 <strong>Think about your task manager:</strong> This one prompt is all you need. The workflow handles folder structure, role assignment, planning, and approval gates automatically.</div>
             <p><strong>Open a new chat and type:</strong></p>
-            <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyPrompt('wf-0',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="wf-0">Using AI-DLC, build a simple personal task manager to help users add tasks and view their task list. Keep it simple with just these two core features.</pre></div>
+            <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyPrompt('wf-0',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="wf-0">Using AI-DLC, build a local-first personal task manager using Python Flask, SQLite, and a minimal HTML frontend. Help users add tasks and view their task list. Keep it simple with just these two core features.</pre></div>
             <p>AI-DLC Workflow activates and runs Workspace Detection automatically. It will display a welcome message explaining the three-phase lifecycle (Inception → Construction → Operations), scan your workspace, set up the <code>aidlc-docs/</code> directory with state and audit tracking, and proceed to the next stage.</p>
             <p>Read the welcome message — it explains the workflow you'll follow for the rest of the workshop.</p>
         </div>
@@ -95,7 +97,7 @@
         <div class="prompt-title"><span class="step-badge">Inception</span> Activity 2: Requirements Analysis (~15 minutes)</div>
         <div class="vision-section" style="border-radius:0 0 8px 8px;margin-top:0">
             <p>The AI analyzes your request and asks clarifying questions about anything unclear. The number and content of questions vary based on your initial prompt. You'll also see a question about enabling security extension rules.</p>
-            <div class="think-box">💡 <strong>Think about your task manager:</strong> What storage makes sense — in-memory for simplicity or a database for persistence? Single user or multi-user? These are the kinds of decisions the AI will ask you to make here.</div>
+            <div class="think-box">💡 <strong>Think about your task manager:</strong> Use SQLite persistence by default so tasks survive restarts. Keep in-memory storage only for tests or prototypes. Single user or multi-user? These are the kinds of decisions the AI may ask you to make here.</div>
             <p><strong>When the AI presents the questions file:</strong> Open it, fill in your <code>[Answer]:</code> tags using the multiple-choice letters. For the security extension question, answer "No" since this is a prototype. Then tell the AI:</p>
             <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyPrompt('wf-1',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="wf-1">I have answered the clarification questions. Please re-read the file and proceed.</pre></div>
             <p>The AI may ask follow-up questions if it finds ambiguities in your answers. Once resolved, it generates a requirements document and presents an approval gate.</p>
@@ -122,10 +124,10 @@
         <div class="prompt-title"><span class="step-badge">Inception</span> Activity 4: Workflow Planning (~5 minutes)</div>
         <div class="vision-section" style="border-radius:0 0 8px 8px;margin-top:0">
             <p>The AI looks at everything gathered so far and decides which Construction stages to run. It generates an execution plan with a visual diagram showing what's completed, what will execute, and what's being skipped.</p>
-            <div class="think-box">💡 <strong>Think about your task manager:</strong> Since this is a simple two-feature app, expect most design stages to be skipped. The AI recognizes that a basic task manager doesn't need NFR analysis or complex functional design — it goes straight to code generation. If you want deployment on AWS, this is where you'd ask the AI to add Infrastructure Design.</div>
+            <div class="think-box">💡 <strong>Think about your task manager:</strong> Since this is a simple two-feature app, expect most design stages to be skipped. The AI recognizes that a basic task manager doesn't need NFR analysis or complex functional design — it goes straight to code generation. If you want Docker Compose packaging for the Operations step, this is where you'd ask the AI to add Local Packaging.</div>
             <p>For this simple project, expect most Construction design stages (Functional Design, NFR, etc.) to be skipped, with Code Generation and Build and Test marked for execution.</p>
-            <p>If you want to add Infrastructure Design for AWS deployment, tell the AI:</p>
-            <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyPrompt('wf-2',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="wf-2">Add Infrastructure Design to the plan. We'll deploy on AWS with CloudFormation.</pre></div>
+            <p>If you want to add local packaging for the Operations step, tell the AI:</p>
+            <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyPrompt('wf-2',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="wf-2">Add Local Packaging to the plan. We need Dockerfile, docker-compose.yml, .env.example, and a local deployment guide for the Operations step.</pre></div>
             <p>Review the execution plan and respond:</p>
             <div class="gate-box">📋 The AI will present an approval gate — review the output and approve to continue, or request changes if needed.</div>
             <div class="context-reset">💡 <strong>Context reset (optional):</strong> Starting a fresh chat before Construction can help if the Inception phase was long. Skip if things are going smoothly.</div>
@@ -139,8 +141,9 @@
         <div class="prompt-title"><span class="step-badge">Construction</span> Activity 5: Code Generation (~35 minutes)</div>
         <div class="vision-section" style="border-radius:0 0 8px 8px;margin-top:0">
             <p>This is the main build activity. The AI creates a plan for what code to generate, gets your approval, then executes it step by step — checking off each item as it goes. Code goes in the workspace root, documentation goes in <code>aidlc-docs/</code>.</p>
-            <div class="think-box">💡 <strong>Think about your task manager:</strong> The code generation plan will trace directly back to your user stories. The "add task" endpoint will handle the happy path and error scenarios from your acceptance criteria. The "view tasks" endpoint will return the list as JSON. Watch how the AI connects design decisions to actual code.</div>
+            <div class="think-box">💡 <strong>Think about your task manager:</strong> The code generation plan will trace directly back to your user stories. The "add task" flow should work from both the HTML form and JSON API. The "view tasks" flow should render in the browser and remain available as JSON for curl tests. SQLite should persist tasks between restarts.</div>
             <p><strong>Part 1 — Planning:</strong> The AI creates a code generation plan with numbered, checkboxed steps covering what files to create, where they go, and how they map back to the user stories.</p>
+            <p>Review that the plan includes Flask routes, SQLite persistence, a minimal HTML template, validation for missing task titles, and local tests.</p>
             <p>Review the plan — check that the steps cover both user stories and that code goes in the right places.</p>
             <div class="gate-box">📋 The AI will present an approval gate — review the output and approve to continue, or request changes if needed.</div>
             <p class="mt-3"><strong>Part 2 — Generation:</strong> The AI executes each step, marking checkboxes as it completes them.</p>
@@ -152,11 +155,19 @@
 
     <!-- Activity 6 -->
     <div class="mb-4">
-        <div class="prompt-title"><span class="step-badge">Construction</span> Activity 6: Infrastructure Design + Deployment (~15 minutes)</div>
+        <div class="prompt-title"><span class="step-badge">Operations</span> Activity 6: Local Packaging + Operations (~15 minutes)</div>
         <div class="vision-section" style="border-radius:0 0 8px 8px;margin-top:0">
-            <div class="note-box mb-2">Skip this activity if Infrastructure Design was not added to your execution plan.</div>
-            <p>The AI designs the AWS deployment architecture, generates a CloudFormation template and deployment guide, validates the infrastructure code, and presents for approval.</p>
-            <div class="think-box">💡 <strong>Think about your task manager:</strong> With in-memory storage, deployment is straightforward. If you chose a database during requirements, the infrastructure will include that too.</div>
+            <div class="note-box mb-2">Skip this activity if Local Packaging was not added to your execution plan.</div>
+            <p>The AI packages the local-first Flask application for repeatable Operations use. It generates Docker Compose artifacts, a local deployment guide, and validation notes.</p>
+            <ul>
+                <li><code>Dockerfile</code> for the Flask application</li>
+                <li><code>docker-compose.yml</code> exposing the app at <code>http://localhost:5000</code></li>
+                <li><code>.env.example</code> for local configuration</li>
+                <li>Persistent SQLite storage under <code>./data/tasks.db</code></li>
+                <li><code>GET /health</code> for local health checks</li>
+                <li><code>DEPLOYMENT/local-deployment-guide.md</code> and validation notes</li>
+            </ul>
+            <div class="think-box">💡 <strong>Think about your task manager:</strong> Docker Compose is for the Operations step. The first development path still runs directly with Python, while the packaged path proves the project can be started consistently on another machine.</div>
             <div class="gate-box">📋 The AI will present an approval gate — review the output and approve to continue, or request changes if needed.</div>
         </div>
     </div>
@@ -169,15 +180,28 @@
             <div class="note-box mb-2">The exact directory name, file names, port, and endpoints may vary based on what the AI generated. Check the build instructions for the exact commands for your project.</div>
             <p><strong>Test your application</strong> using the instructions provided:</p>
             <pre class="bg-dark text-light p-3 rounded">cd taskManager
-pip install -r requirements.txt
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
 python app.py</pre>
+            <p class="mt-3">On Windows PowerShell:</p>
+            <pre class="bg-dark text-light p-3 rounded">cd taskManager
+py -3 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python app.py</pre>
+            <p class="mt-3">Open the HTML frontend in your browser:</p>
+            <pre class="bg-dark text-light p-3 rounded">http://localhost:5000</pre>
             <p class="mt-3">In a separate terminal:</p>
             <pre class="bg-dark text-light p-3 rounded"># Add a task
 curl -X POST http://localhost:5000/tasks -H "Content-Type: application/json" \
   -d '{"title": "Learn AI-DLC", "description": "Complete the tutorial"}'
 
 # Get all tasks
-curl http://localhost:5000/tasks</pre>
+curl http://localhost:5000/tasks
+
+# Check application health
+curl http://localhost:5000/health</pre>
         </div>
     </div>
 
@@ -188,13 +212,13 @@ curl http://localhost:5000/tasks</pre>
         <div class="prompt-title"><span class="step-badge">Operations</span> Activity 8: Operations Discussion (~10 minutes)</div>
         <div class="vision-section" style="border-radius:0 0 8px 8px;margin-top:0">
             <p>AI-DLC Workflow's Operations phase is a placeholder for future expansion. This is a group discussion about what comes after building.</p>
-            <div class="think-box">💡 <strong>Think about your task manager:</strong> How would you monitor API response times? What happens if the in-memory store fills up? How would you add persistence without breaking the existing API contract? These are the kinds of production concerns this phase is designed to address.</div>
+            <div class="think-box">💡 <strong>Think about your task manager:</strong> How would you monitor API response times, local logs, and container health? How would you back up and restore the SQLite database? How would you migrate from SQLite to PostgreSQL later without breaking the existing API contract?</div>
             <p><strong>Discuss as a group:</strong></p>
             <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyPrompt('wf-3',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="wf-3">Now that we've built our task manager, discuss how AI would help with:
-1. Deploying our task manager to production
-2. Monitoring the application performance
-3. Detecting and responding to issues automatically
-4. Scaling the application as usage grows
+1. Packaging our task manager with Docker Compose for repeatable local runs
+2. Monitoring local logs, API health, and application performance
+3. Backing up and restoring the SQLite database
+4. Migrating from SQLite to PostgreSQL or hosted infrastructure later
 
 Please explain how this would work for our specific task manager application.</pre></div>
         </div>
@@ -259,39 +283,70 @@ Your Task: Refer to the user stories in the aidlc-docs/design-artifacts/task_man
         <div class="prompt-title"><span class="step-badge">Construction</span> Activity 5: Code Generation (35 minutes)</div>
         <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyPrompt('p-5',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="p-5">Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an aidlc-docs/plans/code_generation_plan.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Task: Refer to component design in the aidlc-docs/design-artifacts/task_component_model.md file. Generate a very simple Python implementation for the Task Management Component with just two features: add new tasks and list all tasks. Keep it simple - no complex priority logic needed. Generate the classes in respective individual files and save them in the taskManager directory: task.py (Task class), and task_service.py (TaskService class).</pre></div>
+Task: Refer to component design in the aidlc-docs/design-artifacts/task_component_model.md file. Generate a simple local-first Python Flask implementation for the Task Management Component with these features:
+- Add new tasks
+- View all tasks
+- Persist tasks in SQLite by default
+- Provide a minimal HTML frontend at /
+- Keep JSON API endpoints available for curl testing
+- Validate that task title is required
+
+Generate files under taskManager:
+- app.py
+- task.py
+- task_service.py
+- task_repository.py
+- templates/index.html
+- static/styles.css if useful
+- requirements.txt
+- tests for service, repository, and API behavior</pre></div>
     </div>
 
     <div class="mb-4">
         <div class="prompt-title"><span class="step-badge">Construction</span> Activity 6: Build APIs (15 minutes)</div>
         <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyPrompt('p-6',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="p-6">Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Task: Refer to the task_service.py under the taskManager/ folder. Create python flask apis for each of the service there.</pre></div>
+Task: Refer to the task_service.py under the taskManager/ folder. Create Flask routes for:
+- GET / for the HTML task list and form
+- POST /tasks for JSON API task creation
+- GET /tasks for JSON API task listing
+- POST /ui/tasks or a similar form-compatible task creation route if needed
+- GET /health for local health checks
+
+Routes must use the SQLite-backed repository through the service layer. Test the browser flow and curl API flow.</pre></div>
     </div>
 
     <div class="mb-4">
-        <div class="prompt-title"><span class="step-badge">Construction</span> Activity 7: Architecture Planning (15 minutes)</div>
-        <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyPrompt('p-7',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="p-7">Your Role: You are an experienced Cloud Architect. Before you start the task as mentioned below, please do the planning and write your steps in a deployment_plan.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
+        <div class="prompt-title"><span class="step-badge">Operations</span> Activity 7: Local Packaging (15 minutes)</div>
+        <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyPrompt('p-7',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="p-7">Your Role: You are an experienced platform engineer. Before you start the task as mentioned below, please do the planning and write your steps in a deployment_plan.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Task: Refer component design model: aidlc-docs/design-artifacts/task_component_model.md, units in the aidlc-docs/design-artifacts/ folder, and backend code in the taskManager/ folder. Complete the following:
-- Generate a end-to-end plan for deployment of the backend on AWS cloud using CloudFormation.
-- Document all the pre-requisites for the deployment, if any.
+Task: Package this local-first Flask + SQLite task manager for the Operations step. Do not require AWS services, AWS credentials, CloudFormation, or any cloud account.
 
-Once I approve the plan:
-- Follow the best practice of clean, simple, explainable coding.
-- All output code goes in the DEPLOYMENT/ folder as cloudformation-template.yaml and deployment-guide.md.
-- Validate that the generated code works as intended, by creating a validation plan, generate a validation report.
-- Review the validation report and fix all identified issues, update the validation report.</pre></div>
+Create:
+- Dockerfile
+- docker-compose.yml
+- .env.example
+- DEPLOYMENT/local-deployment-guide.md
+- DEPLOYMENT/validation-report.md
+
+Requirements:
+- App runs on http://localhost:5000
+- SQLite database persists under ./data/tasks.db
+- Docker Compose bind-mounts or volumes ./data
+- Include a health check for /health
+- Include commands for docker compose up --build, docker compose ps, docker compose logs, and docker compose down
+- Validate browser flow and curl API flow
+- Review the validation report and fix all identified issues, then update the validation report</pre></div>
     </div>
 
     <div class="mb-4">
         <div class="prompt-title"><span class="step-badge">Operations</span> Activity 8: Operations Phase Discussion</div>
         <div class="prompt-box"><button class="btn btn-sm btn-light copy-btn" onclick="copyPrompt('p-8',event)"><i class="bi bi-clipboard"></i> Copy</button><pre id="p-8">Now that we've built our task manager, let's discuss the Operations Phase. Based on what we've created, how would AI help with:
 
-1. Deploying our task manager to production
-2. Monitoring the application performance  
-3. Detecting and responding to issues automatically
-4. Scaling the application as usage grows
+1. Packaging our task manager with Docker Compose for repeatable local runs
+2. Monitoring local logs, API health, and application performance
+3. Backing up and restoring the SQLite database
+4. Migrating from SQLite to PostgreSQL or hosted infrastructure later
 
 Please explain how this would work for our specific task manager application.</pre></div>
     </div>
@@ -300,14 +355,22 @@ Please explain how this would work for our specific task manager application.</p
         <h3>Test Your Application</h3>
         <h5>Run Locally:</h5>
         <pre class="bg-dark text-light p-3 rounded">cd taskManager
-pip install -r requirements.txt
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
 python app.py
+
+# Open the browser frontend
+http://localhost:5000
 
 # Add a task
 curl -X POST http://localhost:5000/tasks -H "Content-Type: application/json" -d '{"title": "Learn AI-DLC", "description": "Complete the tutorial"}'
 
 # Get all tasks
-curl http://localhost:5000/tasks</pre>
+curl http://localhost:5000/tasks
+
+# Check application health
+curl http://localhost:5000/health</pre>
     </div>
 </div>
 
